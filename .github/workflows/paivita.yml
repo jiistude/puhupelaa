@@ -1,0 +1,44 @@
+name: Päivitä ottelut
+
+on:
+  schedule:
+    # Ajat ovat UTC-aikaa: Suomen aika miinus 3 tuntia kesällä, miinus 2 talvella.
+    # Aamulla: yön aikana tehdyt ottelusiirrot.
+    - cron: "10 3 * * *"
+    # Illalla: päivän pelatut ottelut pois listalta ja kalenteri ajan tasalle.
+    - cron: "10 18 * * *"
+  workflow_dispatch: # sallii päivityksen käsin GitHubin Actions-välilehdeltä
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paivita
+  cancel-in-progress: false
+
+jobs:
+  paivita:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Hae ottelut ja rakenna sivu
+        run: node hae.js
+
+      - name: Tallenna muutokset
+        run: |
+          git config user.name "Ottelurobotti"
+          git config user.email "actions@github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "Ei muutoksia."
+          else
+            git commit -m "Päivitetyt ottelutiedot"
+            git push
+          fi
