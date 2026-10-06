@@ -1,0 +1,29 @@
+{
+  "otsikko": "Edustusjoukkueiden ottelut",
+  "alaotsikko": "Kausi 2026–2027",
+  "kuvaus": "Puhuttarien ja PuHu Miesten tulevat ottelut. Kotiotteluihin on vapaa pääsy. Tiedot päivittyvät automaattisesti Koripalloliiton tulospalvelusta.",
+  "sivun_osoite": "https://pelit.puhujuniorit.fi",
+  "seuran_sivu": "https://www.puhujuniorit.fi",
+  "logo": "logo.png",
+  "favicon": "https://images.squarespace-cdn.com/content/v1/5c5bf24a11f784550b1ad53f/1559220481832-BZU8HKKZGW7XRASM0KPN/favicon.ico?format=100w",
+  "kotipelien_huomautus": "Vapaa pääsy",
+  "aikavyohyke": "Europe/Helsinki",
+  "joukkueet": [
+    {
+      "nimi": "Puhuttaret",
+      "tunniste": "puhuttaret",
+      "nimi_syotteessa": "Puhuttaret",
+      "vari": "#D62A32",
+      "kalenteri": "testi/puhuttaret.ics"
+    },
+    {
+      "nimi": "PuHu Miehet",
+      "tunniste": "miehet",
+      "nimi_syotteessa": "PuHu Juniorit",
+      "vari": "#111111",
+      "kalenteri": "testi/miehet.ics"
+    }
+  ],
+  "tulevat_paivat": 300,
+  "ottelun_kesto_min": 120
+}

@@ -1,0 +1,208 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//puhujuniorit.fi//otteluohjelma//FI
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Puhuttaret
+X-WR-TIMEZONE:Europe/Helsinki
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:1019717-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261011T140000Z
+DTEND:20261011T160000Z
+SUMMARY:Leppävaaran Pyrintö – Puhuttaret
+LOCATION:Leppävaaran liikuntahalli\, Veräjäpellonkatu 6\, Espoo
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019717
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019717
+END:VEVENT
+BEGIN:VEVENT
+UID:1019772-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261023T143000Z
+DTEND:20261023T163000Z
+SUMMARY:Puhuttaret – Helsingin NMKY
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019772
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019772
+END:VEVENT
+BEGIN:VEVENT
+UID:1019763-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261025T120000Z
+DTEND:20261025T140000Z
+SUMMARY:Tapiolan Honka II – Puhuttaret
+LOCATION:Tapiolan Liikuntahalli\, Urheilupuistontie 2\, Espoo
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019763
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019763
+END:VEVENT
+BEGIN:VEVENT
+UID:1019773-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261101T120000Z
+DTEND:20261101T140000Z
+SUMMARY:Puhuttaret – Äänekosken Huima
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019773
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019773
+END:VEVENT
+BEGIN:VEVENT
+UID:1019702-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261108T150000Z
+DTEND:20261108T170000Z
+SUMMARY:Espoo Basket Team II – Puhuttaret
+LOCATION:Espoonlahden urheiluhalli\, Rehtorintie 11\, Espoo
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019702
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019702
+END:VEVENT
+BEGIN:VEVENT
+UID:1019774-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261115T120000Z
+DTEND:20261115T140000Z
+SUMMARY:Puhuttaret – Turun NMKY
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019774
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019774
+END:VEVENT
+BEGIN:VEVENT
+UID:1019747-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261206T120000Z
+DTEND:20261206T140000Z
+SUMMARY:ToPo II – Puhuttaret
+LOCATION:Pirkkolahalli\, Pirkkolan metsätie 8\, Helsinki
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019747
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019747
+END:VEVENT
+BEGIN:VEVENT
+UID:1019775-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261213T150000Z
+DTEND:20261213T170000Z
+SUMMARY:Puhuttaret – Pyrintö Akatemia
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019775
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019775
+END:VEVENT
+BEGIN:VEVENT
+UID:1019776-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20261218T153000Z
+DTEND:20261218T173000Z
+SUMMARY:Puhuttaret – Pantterit
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019776
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019776
+END:VEVENT
+BEGIN:VEVENT
+UID:1019730-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270108T173000Z
+DTEND:20270108T193000Z
+SUMMARY:Helsingin NMKY – Puhuttaret
+LOCATION:Namika Areena\, Pilkekuja 10\, Helsinki
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019730
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019730
+END:VEVENT
+BEGIN:VEVENT
+UID:1019777-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270110T150000Z
+DTEND:20270110T170000Z
+SUMMARY:Puhuttaret – Leppävaaran Pyrintö
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019777
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019777
+END:VEVENT
+BEGIN:VEVENT
+UID:1019778-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270115T153000Z
+DTEND:20270115T173000Z
+SUMMARY:Puhuttaret – Tapiolan Honka II
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019778
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019778
+END:VEVENT
+BEGIN:VEVENT
+UID:1019779-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270129T153000Z
+DTEND:20270129T173000Z
+SUMMARY:Puhuttaret – Espoo Basket Team II
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019779
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019779
+END:VEVENT
+BEGIN:VEVENT
+UID:1019787-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270131T120000Z
+DTEND:20270131T140000Z
+SUMMARY:Äänekosken Huima – Puhuttaret
+LOCATION:Äänekosken liikuntatalo\, Koulumäenkatu 2\, Äänekoski
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019787
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019787
+END:VEVENT
+BEGIN:VEVENT
+UID:1019742-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270221T150000Z
+DTEND:20270221T170000Z
+SUMMARY:Turun NMKY – Puhuttaret
+LOCATION:Nunnavuoren palloiluhalli\, Piiparinpolku 22\, Turku
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019742
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019742
+END:VEVENT
+BEGIN:VEVENT
+UID:1019780-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270226T153000Z
+DTEND:20270226T173000Z
+SUMMARY:Puhuttaret – ToPo II
+LOCATION:Vantaan Energia Areena\, Rajatorpantie 23\, Vantaa
+DESCRIPTION:Naisten I divisioona\nKotiottelu – vapaa pääsy\nOttelu bas
+ ket.fi:ssä: https://tulospalvelu.basket.fi/match/1019780
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019780
+END:VEVENT
+BEGIN:VEVENT
+UID:1019760-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270307T120000Z
+DTEND:20270307T140000Z
+SUMMARY:Pyrintö Akatemia – Puhuttaret
+LOCATION:Pyynikin palloiluhalli\, Ammattikoulunkatu 20\, Tampere
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019760
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019760
+END:VEVENT
+BEGIN:VEVENT
+UID:1019716-puhuttaret@pelit.puhujuniorit.fi
+DTSTAMP:20261006T171700Z
+DTSTART:20270314T120000Z
+DTEND:20270314T140000Z
+SUMMARY:Pantterit – Puhuttaret
+LOCATION:Herttoniemenr. liik.halli\, Petter Wetterin tie 5\, Helsinki
+DESCRIPTION:Naisten I divisioona\nVierasottelu\nOttelu basket.fi:ssä: htt
+ ps://tulospalvelu.basket.fi/match/1019716
+URL;VALUE=URI:https://tulospalvelu.basket.fi/match/1019716
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,269 @@
+BEGIN:VCALENDAR
+PRODID:TASO
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+NAME:PuHu Juniorit – Miesten I divisioona B
+X-WR-CALNAME:PuHu Juniorit – Miesten I divisioona B
+X-WR-TIMEZONE:Europe/Helsinki
+BEGIN:VEVENT
+DTSTAMP:20270108T163000Z
+UID:1006787@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:BC Nokia – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006787
+STATUS:CONFIRMED
+LOCATION:AGCO Power Arena, Kankaantaankatu 4, Nokia
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006787
+DTSTART:20270108T163000Z
+DTEND:20270108T163000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270120T170000Z
+UID:1006798@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Raiders Basket – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006798
+STATUS:CONFIRMED
+LOCATION:Järvenpään liikuntahalli, Seutulantie 17, Järvenpää
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006798
+DTSTART:20270120T170000Z
+DTEND:20270120T170000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261129T150000Z
+UID:1006805@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Team Pajulahti – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006805
+STATUS:CONFIRMED
+LOCATION:Luhta Areena, Salpausselänkatu 7, Lahti
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006805
+DTSTART:20261129T150000Z
+DTEND:20261129T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270321T150000Z
+UID:1006821@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Hyvinkään Ponteva – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006821
+STATUS:CONFIRMED
+LOCATION:Martinhalli, Martintorinkuja 2, Hyvinkää
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006821
+DTSTART:20270321T150000Z
+DTEND:20270321T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270221T150000Z
+UID:1006829@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Kataja Basket Academy – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006829
+STATUS:CONFIRMED
+LOCATION:Motonet Areena, Kisapolku 3, Joensuu
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006829
+DTSTART:20270221T150000Z
+DTEND:20270221T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270305T163000Z
+UID:1006840@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Turun NMKY – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006840
+STATUS:CONFIRMED
+LOCATION:Nunnavuoren palloiluhalli, Piiparinpolku 22, Turku
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006840
+DTSTART:20270305T163000Z
+DTEND:20270305T163000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261025T150000Z
+UID:1006843@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PeU-Basket – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006843
+STATUS:CONFIRMED
+LOCATION:Perniön liikuntahalli, Erveläntie 16, Salo
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006843
+DTSTART:20261025T150000Z
+DTEND:20261025T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261112T163000Z
+UID:1006854@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:KTP – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006854
+STATUS:CONFIRMED
+LOCATION:Steveco Areena, Ututie 4, Kotka
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006854
+DTSTART:20261112T163000Z
+DTEND:20261112T163000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270204T163000Z
+UID:1006868@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Tapiolan Honka II – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006868
+STATUS:CONFIRMED
+LOCATION:Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006868
+DTSTART:20270204T163000Z
+DTEND:20270204T163000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261016T153000Z
+UID:1006872@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:Ura Basket – PuHu Juniorit, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006872
+STATUS:CONFIRMED
+LOCATION:Valkeavuoren liikuntahalli, Veitenmäentie 29, Kaarina
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006872
+DTSTART:20261016T153000Z
+DTEND:20261016T153000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261023T170000Z
+UID:1006882@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Raiders Basket, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006882
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006882
+DTSTART:20261023T170000Z
+DTEND:20261023T170000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261101T150000Z
+UID:1006883@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – BC Nokia, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006883
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006883
+DTSTART:20261101T150000Z
+DTEND:20261101T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261115T150000Z
+UID:1006884@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Tapiolan Honka II, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006884
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006884
+DTSTART:20261115T150000Z
+DTEND:20261115T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261204T163000Z
+UID:1006885@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Turun NMKY, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006885
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006885
+DTSTART:20261204T163000Z
+DTEND:20261204T163000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261205T150000Z
+UID:1006886@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Kataja Basket Academy, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006886
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006886
+DTSTART:20261205T150000Z
+DTEND:20261205T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20261218T180000Z
+UID:1006887@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Hyvinkään Ponteva, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006887
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006887
+DTSTART:20261218T180000Z
+DTEND:20261218T180000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270115T180000Z
+UID:1006888@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Ura Basket, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006888
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006888
+DTSTART:20270115T180000Z
+DTEND:20270115T180000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270129T180000Z
+UID:1006889@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – PeU-Basket, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006889
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006889
+DTSTART:20270129T180000Z
+DTEND:20270129T180000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270214T150000Z
+UID:1006890@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – KTP, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006890
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006890
+DTSTART:20270214T150000Z
+DTEND:20270214T150000Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20270226T180000Z
+UID:1006891@koripallo.api.torneopal.com
+CATEGORIES:Miesten I divisioona B
+SUMMARY:PuHu Juniorit – Team Pajulahti, Miesten I divisioona B
+URL:https://tulospalvelu.basket.fi/match/1006891
+STATUS:CONFIRMED
+LOCATION:Vantaan Energia Areena, Rajatorpantie 23, Vantaa
+DESCRIPTION:https://tulospalvelu.basket.fi/match/1006891
+DTSTART:20270226T180000Z
+DTEND:20270226T180000Z
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

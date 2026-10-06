@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edustusjoukkueiden ottelut | PuHu</title>
+<meta name="description" content="Seuraava kotipeli: Puhuttaret – Helsingin NMKY, perjantaina 23. lokakuuta klo 17.30, Vantaan Energia Areena. Vapaa pääsy.">
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/5c5bf24a11f784550b1ad53f/1559220481832-BZU8HKKZGW7XRASM0KPN/favicon.ico?format=100w">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PuHu Juniorit">
+<meta property="og:title" content="Edustusjoukkueiden ottelut | PuHu">
+<meta property="og:description" content="Seuraava kotipeli: Puhuttaret – Helsingin NMKY, perjantaina 23. lokakuuta klo 17.30, Vantaan Energia Areena. Vapaa pääsy.">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:url" content="https://pelit.puhujuniorit.fi/">
+<meta property="og:image" content="https://pelit.puhujuniorit.fi/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Upotustila asetetaan ennen piirtoa, jottei logo välähdä iframessa.
+  if (/[?&]upotus=1\b/.test(location.search)) document.documentElement.classList.add('upotus');
+</script>
+<style>
+  :root {
+    --punainen: #D62A32;
+    --punainen-tumma: #B5222A;
+    --musta: #111;
+    --teksti: #111;
+    --himmea: #5E5E5E;
+    --raja: #E2E2E2;
+    --pinta: #F6F6F6;
+    --tausta: #FFFFFF;
+    --vapaa-pohja: #FCEBEC;
+    --vapaa-teksti: #A11B22;
+    --fontti: "Jost", "Futura PT", "Futura", "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--tausta); color: var(--teksti);
+    font-family: var(--fontti); font-size: 17px; line-height: 1.5; letter-spacing: .01em;
+  }
+  a { color: inherit; }
+  .kehys { max-width: 760px; margin: 0 auto; padding: 0 16px 4rem; }
+
+  /* Sivun pää: logo vasemmalla kuten seuran sivustolla, ei mustaa palkkia. */
+  .sivupaa { padding: 1.5rem 0 0; }
+  .logo { display: inline-block; line-height: 0; }
+  .logo img { height: 60px; width: auto; display: block; }
+  .logoteksti { font-weight: 700; text-transform: uppercase; letter-spacing: .12em; text-decoration: none; }
+  header.otsikko { padding: 2rem 0 1.25rem; }
+  h1 {
+    font-size: clamp(1.45rem, 6.6vw, 2.75rem); line-height: 1.08; margin: 0;
+    text-transform: uppercase; font-weight: 700; letter-spacing: .01em;
+    overflow-wrap: break-word; hyphens: manual;
+  }
+  .alaotsikko {
+    margin: .6rem 0 0; color: var(--punainen); font-weight: 500;
+    text-transform: uppercase; letter-spacing: .06em; font-size: 1.1rem;
+  }
+  .selite { color: var(--himmea); margin: 1rem 0 0; max-width: 36rem; }
+
+  /* Valinnat */
+  .valinnat { position: sticky; top: 0; z-index: 2; background: var(--tausta); padding: .9rem 0 .75rem; border-bottom: 1px solid var(--raja); }
+  .nakymat { display: flex; }
+  .nakymat button {
+    flex: 1 1 0; font: inherit; cursor: pointer;
+    background: var(--tausta); color: var(--teksti);
+    border: 2px solid var(--musta); margin-left: -2px; padding: .7rem .5rem;
+    font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+  }
+  .nakymat button:first-child { margin-left: 0; }
+  .nakymat button[aria-selected="true"] { background: var(--punainen); border-color: var(--punainen); color: #fff; position: relative; }
+  .nakymat .maara { font-weight: 500; opacity: .8; margin-left: .35em; letter-spacing: 0; }
+
+  /* Joukkuetunniste: valkoinen teksti joukkueen värisessä laatikossa.
+     Samaa muotoa käytetään ottelukortissa ja joukkuevalinnassa. */
+  .tunniste, .joukkuevalinta button {
+    display: inline-block; font-family: inherit; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .1em; line-height: 1.3; white-space: nowrap;
+  }
+  .tunniste { background: var(--vari); color: #fff; font-size: .68rem; padding: .2rem .5rem; }
+  .joukkuevalinta { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
+  .joukkuevalinta button {
+    cursor: pointer; font-size: .78rem; padding: .4rem .8rem;
+    background: var(--tausta); color: var(--vari); border: 2px solid var(--vari);
+  }
+  .joukkuevalinta button[aria-pressed="true"] { background: var(--vari); color: #fff; }
+  .joukkuevalinta button:hover { box-shadow: inset 0 0 0 1px var(--vari); }
+  /* "Molemmat" on neutraali, jottei se sekoitu kumpaankaan joukkueväriin. */
+  .joukkuevalinta button.molemmat { --vari: #CFCFCF; color: var(--himmea); }
+  .joukkuevalinta button.molemmat[aria-pressed="true"] { background: #E8E8E8; border-color: #E8E8E8; color: var(--teksti); }
+  button:focus-visible, a:focus-visible { outline: 3px solid var(--punainen); outline-offset: 2px; }
+
+  /* Lista */
+  .paiva h2 {
+    font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em;
+    color: var(--punainen); margin: 2rem 0 .6rem;
+  }
+  .ottelu {
+    display: grid; grid-template-columns: 4.6rem 1fr; gap: .25rem 1rem;
+    border: 1px solid var(--raja); border-left: 5px solid var(--vari);
+    padding: .9rem 1rem .95rem .9rem; margin-bottom: .55rem; background: var(--tausta);
+  }
+  .ottelu.seuraava { border-color: var(--vari); box-shadow: 0 0 0 1px var(--vari); }
+  .aika { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
+  .kello { font-size: 1.35rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .seuraavaMerkki { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--himmea); }
+  .ylarivi { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; margin-bottom: .3rem; }
+  .sarja { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--himmea); }
+  .joukkueet { font-size: 1.1rem; font-weight: 500; line-height: 1.3; margin: 0 0 .3rem; overflow-wrap: break-word; }
+  .joukkueet .oma { font-weight: 700; }
+  .joukkueet .vs { color: var(--himmea); }
+  .halli { display: block; color: var(--himmea); font-size: .9rem; text-decoration: none; }
+  .halli:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .vapaa {
+    display: inline-flex; align-items: center; gap: .4rem; margin-top: .55rem;
+    background: var(--vapaa-pohja); color: var(--vapaa-teksti); padding: .3rem .65rem;
+    font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  }
+  .basketfi {
+    display: block; width: fit-content; margin-top: .55rem; color: var(--teksti);
+    font-size: .88rem; font-weight: 500; text-decoration: underline;
+    text-decoration-color: var(--raja); text-decoration-thickness: 2px; text-underline-offset: 4px;
+  }
+  .basketfi:hover { text-decoration-color: var(--punainen); }
+  .tyhja { color: var(--himmea); padding: 2rem 0 .5rem; margin: 0; }
+  .huomio { background: var(--pinta); border-left: 4px solid var(--punainen); padding: .8rem 1rem; margin: 1.5rem 0 0; font-size: .95rem; }
+
+  /* Kalenteritilaus */
+  .tilaus { margin-top: 3rem; background: var(--pinta); padding: 1.25rem 1.25rem 1.1rem; }
+  .tilaus summary {
+    cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .95rem;
+    list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  }
+  .tilaus summary::-webkit-details-marker { display: none; }
+  .tilaus summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--punainen); }
+  .tilaus[open] summary::after { content: "\2013"; }
+  .tilausNapit { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 .5rem; }
+  .nappi {
+    display: inline-block; font: inherit; cursor: pointer; text-decoration: none;
+    background: var(--punainen); color: #fff; border: 2px solid var(--punainen);
+    padding: .6rem 1rem; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+  }
+  .nappi:hover { background: var(--punainen-tumma); border-color: var(--punainen-tumma); }
+  .nappi.toissijainen { background: transparent; color: var(--teksti); border-color: var(--musta); }
+  .nappi.toissijainen:hover { background: var(--musta); color: #fff; }
+  .tilausSelite { font-size: .9rem; color: var(--himmea); margin: .6rem 0 0; }
+  .tilausSelite a { color: var(--teksti); font-weight: 600; text-underline-offset: 3px; }
+  .osoite { word-break: break-all; color: var(--teksti); }
+
+  footer { margin-top: 2.5rem; font-size: .85rem; color: var(--himmea); }
+  footer a { color: var(--himmea); text-underline-offset: 3px; }
+
+  /* Upotus Squarespaceen (?upotus=1): ei logoa eikä otsikkoa, ne tulevat isäntäsivulta. */
+  html.upotus .sivupaa, html.upotus header.otsikko, html.upotus footer .seura { display: none; }
+  html.upotus .kehys { padding-bottom: 1rem; }
+  html.upotus .valinnat { position: static; padding-top: .25rem; }
+
+  @media (max-width: 420px) {
+    body { font-size: 16px; }
+    .sivupaa { padding-top: 1rem; }
+    .logo img { height: 48px; }
+    header.otsikko { padding: 1.5rem 0 1rem; }
+    .ottelu { grid-template-columns: 3.9rem 1fr; gap: .2rem .75rem; padding: .8rem .8rem .85rem .75rem; }
+    .kello { font-size: 1.2rem; }
+    .nakymat button { font-size: .78rem; letter-spacing: .1em; padding: .65rem .3rem; }
+    .joukkuevalinta { flex-wrap: nowrap; gap: .35rem; }
+    .joukkuevalinta button { flex: 1 1 auto; padding: .4rem .35rem; font-size: .68rem; letter-spacing: .06em; }
+  }
+  @media print {
+    .valinnat, .tilaus, .basketfi { display: none !important; }
+    .ottelu { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="kehys">
+  <div class="sivupaa">
+    <a class="logo" href="https://www.puhujuniorit.fi" aria-label="PuHu Juniorit, etusivu"><img src="logo.png" alt="PuHu Vantaa" width="750" height="274" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logoteksti" hidden>PuHu Juniorit</span></a>
+  </div>
+
+  <header class="otsikko">
+    <h1>Edustusjoukkueiden ottelut</h1>
+    <p class="alaotsikko">Kausi 2026–2027</p>
+    <p class="selite">Puhuttarien ja PuHu Miesten tulevat ottelut. Kotiotteluihin on vapaa pääsy. Tiedot päivittyvät automaattisesti Koripalloliiton tulospalvelusta.</p>
+  </header>
+
+  <div class="valinnat">
+    <div class="nakymat" role="tablist" aria-label="Ottelut">
+      <button type="button" role="tab" data-paikka="koti" aria-selected="true">Kotipelit<span class="maara"></span></button>
+      <button type="button" role="tab" data-paikka="vieras" aria-selected="false">Vieraspelit<span class="maara"></span></button>
+    </div>
+    <div class="joukkuevalinta" role="group" aria-label="Joukkue">
+      <button type="button" class="molemmat" data-joukkue="molemmat" aria-pressed="true">Molemmat</button>
+      <button type="button" data-joukkue="puhuttaret" aria-pressed="false" style="--vari:#D62A32">Puhuttaret</button>
+      <button type="button" data-joukkue="miehet" aria-pressed="false" style="--vari:#111111">PuHu Miehet</button>
+    </div>
+  </div>
+
+  
+
+  <main id="lista">
+    
+    <section class="paiva">
+      <h2>sunnuntaina 11. lokakuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2026-10-11T14:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Leppävaaran Pyrintö</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lepp%C3%A4vaaran%20liikuntahalli%2C%20Ver%C3%A4j%C3%A4pellonkatu%206%2C%20Espoo">Leppävaaran liikuntahalli, Veräjäpellonkatu 6, Espoo</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019717">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 16. lokakuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2026-10-16T15:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Ura Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Valkeavuoren%20liikuntahalli%2C%20Veitenm%C3%A4entie%2029%2C%20Kaarina">Valkeavuoren liikuntahalli, Veitenmäentie 29, Kaarina</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006872">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 23. lokakuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2026-10-23T14:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Helsingin NMKY</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019772">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-10-23T17:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">20:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Raiders Basket</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006882">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 25. lokakuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2026-10-25T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Tapiolan Honka II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tapiolan%20Liikuntahalli%2C%20Urheilupuistontie%202%2C%20Espoo">Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019763">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2026-10-25T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>PeU-Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Perni%C3%B6n%20liikuntahalli%2C%20Ervel%C3%A4ntie%2016%2C%20Salo">Perniön liikuntahalli, Erveläntie 16, Salo</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006843">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 1. marraskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2026-11-01T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Äänekosken Huima</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019773">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-11-01T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>BC Nokia</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006883">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 8. marraskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2026-11-08T15:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Espoo Basket Team II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Espoonlahden%20urheiluhalli%2C%20Rehtorintie%2011%2C%20Espoo">Espoonlahden urheiluhalli, Rehtorintie 11, Espoo</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019702">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>torstaina 12. marraskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2026-11-12T16:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>KTP</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Steveco%20Areena%2C%20Ututie%204%2C%20Kotka">Steveco Areena, Ututie 4, Kotka</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006854">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 15. marraskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2026-11-15T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Turun NMKY</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019774">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-11-15T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Tapiolan Honka II</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006884">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 29. marraskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2026-11-29T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Team Pajulahti</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Luhta%20Areena%2C%20Salpaussel%C3%A4nkatu%207%2C%20Lahti">Luhta Areena, Salpausselänkatu 7, Lahti</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006805">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 4. joulukuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-12-04T16:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Turun NMKY</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006885">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>lauantaina 5. joulukuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-12-05T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Kataja Basket Academy</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006886">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 6. joulukuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2026-12-06T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>ToPo II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pirkkolahalli%2C%20Pirkkolan%20mets%C3%A4tie%208%2C%20Helsinki">Pirkkolahalli, Pirkkolan metsätie 8, Helsinki</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019747">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 13. joulukuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2026-12-13T15:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Pyrintö Akatemia</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019775">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 18. joulukuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2026-12-18T15:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Pantterit</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019776">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-12-18T18:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">20:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Hyvinkään Ponteva</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006887">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 8. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-01-08T16:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>BC Nokia</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=AGCO%20Power%20Arena%2C%20Kankaantaankatu%204%2C%20Nokia">AGCO Power Arena, Kankaantaankatu 4, Nokia</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006787">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-01-08T17:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">19:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Helsingin NMKY</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namika%20Areena%2C%20Pilkekuja%2010%2C%20Helsinki">Namika Areena, Pilkekuja 10, Helsinki</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019730">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 10. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2027-01-10T15:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Leppävaaran Pyrintö</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019777">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 15. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2027-01-15T15:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Tapiolan Honka II</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019778">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-01-15T18:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">20:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Ura Basket</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006888">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>keskiviikkona 20. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-01-20T17:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">19:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Raiders Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=J%C3%A4rvenp%C3%A4%C3%A4n%20liikuntahalli%2C%20Seutulantie%2017%2C%20J%C3%A4rvenp%C3%A4%C3%A4">Järvenpään liikuntahalli, Seutulantie 17, Järvenpää</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006798">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 29. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2027-01-29T15:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Espoo Basket Team II</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019779">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-01-29T18:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">20:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>PeU-Basket</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006889">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 31. tammikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-01-31T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Äänekosken Huima</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%C3%84%C3%A4nekosken%20liikuntatalo%2C%20Koulum%C3%A4enkatu%202%2C%20%C3%84%C3%A4nekoski">Äänekosken liikuntatalo, Koulumäenkatu 2, Äänekoski</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019787">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>torstaina 4. helmikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-02-04T16:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Tapiolan Honka II</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tapiolan%20Liikuntahalli%2C%20Urheilupuistontie%202%2C%20Espoo">Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006868">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 14. helmikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-02-14T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>KTP</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006890">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 21. helmikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-02-21T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Kataja Basket Academy</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Motonet%20Areena%2C%20Kisapolku%203%2C%20Joensuu">Motonet Areena, Kisapolku 3, Joensuu</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006829">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-02-21T15:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Turun NMKY</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nunnavuoren%20palloiluhalli%2C%20Piiparinpolku%2022%2C%20Turku">Nunnavuoren palloiluhalli, Piiparinpolku 22, Turku</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019742">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 26. helmikuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="koti" data-alku="2027-02-26T15:30:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">17:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>ToPo II</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019780">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-02-26T18:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">20:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span class="oma">PuHu Miehet</span> <span class="vs">&ndash;</span> <span>Team Pajulahti</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
+          <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006891">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>perjantaina 5. maaliskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-03-05T16:30:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">18:30</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Turun NMKY</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nunnavuoren%20palloiluhalli%2C%20Piiparinpolku%2022%2C%20Turku">Nunnavuoren palloiluhalli, Piiparinpolku 22, Turku</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006840">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 7. maaliskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-03-07T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Pyrintö Akatemia</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pyynikin%20palloiluhalli%2C%20Ammattikoulunkatu%2020%2C%20Tampere">Pyynikin palloiluhalli, Ammattikoulunkatu 20, Tampere</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019760">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 14. maaliskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-03-14T12:00:00.000Z" style="--vari:#D62A32">
+        <div class="aika">
+          <span class="kello">14:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">Puhuttaret</span><span class="sarja">Naisten I divisioona</span></div>
+          <div class="joukkueet"><span>Pantterit</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Herttoniemenr.%20liik.halli%2C%20Petter%20Wetterin%20tie%205%2C%20Helsinki">Herttoniemenr. liik.halli, Petter Wetterin tie 5, Helsinki</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019716">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <section class="paiva">
+      <h2>sunnuntaina 21. maaliskuuta</h2>
+      
+      <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2027-03-21T15:00:00.000Z" style="--vari:#111111">
+        <div class="aika">
+          <span class="kello">17:00</span>
+          <span class="seuraavaMerkki" hidden>Seuraava</span>
+        </div>
+        <div class="tiedot">
+          <div class="ylarivi"><span class="tunniste">PuHu Miehet</span><span class="sarja">Miesten I divisioona B</span></div>
+          <div class="joukkueet"><span>Hyvinkään Ponteva</span> <span class="vs">&ndash;</span> <span class="oma">PuHu Miehet</span></div>
+          <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Martinhalli%2C%20Martintorinkuja%202%2C%20Hyvink%C3%A4%C3%A4">Martinhalli, Martintorinkuja 2, Hyvinkää</a>
+          
+          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006821">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </section>
+    <p class="tyhja" id="tyhja" hidden></p>
+  </main>
+
+  
+  <details class="tilaus" id="tilaus">
+    <summary>Tilaa ottelut omaan kalenteriin</summary>
+    <div class="tilausNapit">
+      <a class="nappi" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?cid=webcal://pelit.puhujuniorit.fi/pelit.ics">Google-kalenteri</a>
+      <a class="nappi toissijainen" href="webcal://pelit.puhujuniorit.fi/pelit.ics">iPhone tai Mac</a>
+      <button type="button" class="nappi toissijainen" id="kopioi" data-osoite="https://pelit.puhujuniorit.fi/pelit.ics">Kopioi osoite</button>
+    </div>
+    <p class="tilausSelite">Kalenterissa ovat molempien joukkueiden koti- ja vierasottelut. Tilattu kalenteri päivittyy itsestään, myös kun otteluaikoja siirretään. Osoite on <span class="osoite">https://pelit.puhujuniorit.fi/pelit.ics</span>.</p>
+    <p class="tilausSelite">Vain osa otteluista: <a href="webcal://pelit.puhujuniorit.fi/pelit-koti.ics">Vain kotiottelut</a> &middot; <a href="webcal://pelit.puhujuniorit.fi/pelit-puhuttaret.ics">Puhuttaret</a> &middot; <a href="webcal://pelit.puhujuniorit.fi/pelit-miehet.ics">PuHu Miehet</a></p>
+  </details>
+
+  <footer>
+    <p>Päivitetty 6. lokakuuta 2026 klo 20.17. Lähde: <a href="https://tulospalvelu.basket.fi/" target="_blank" rel="noopener">Koripalloliiton tulospalvelu</a>.</p>
+    <p class="seura"><a href="https://www.puhujuniorit.fi">PuHu Juniorit ry</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var OLETUSKESTO = 120;
+  var NIMET = {"puhuttaret":"Puhuttaret","miehet":"PuHu Miehet"};
+  var kortit = [].slice.call(document.querySelectorAll('.ottelu'));
+  // Oletuksena kotipelit: tärkein kysymys on, milloin on seuraava kotipeli.
+  var tila = { paikka: 'koti', joukkue: 'molemmat' };
+
+  // Sivu on rakennettu ehkä tunteja sitten: jo pelatut ottelut piiloon heti.
+  var nyt = Date.now();
+  kortit.forEach(function (k) {
+    var alku = Date.parse(k.dataset.alku);
+    if (!isNaN(alku) && alku + OLETUSKESTO * 60000 < nyt) k.dataset.ohi = '1';
+  });
+
+  // Valinta luetaan osoitteen lopusta, esim. #vieras tai #vieras/puhuttaret.
+  // Sama muoto toimii myös upotuksen iframe-osoitteessa.
+  function lueOsoite() {
+    location.hash.replace('#', '').split('/').forEach(function (osa) {
+      if (osa === 'koti' || osa === 'vieras') tila.paikka = osa;
+      else if (NIMET[osa]) tila.joukkue = osa;
+    });
+  }
+  function kirjoitaOsoite() {
+    var osat = [];
+    if (tila.paikka !== 'koti') osat.push(tila.paikka);
+    if (tila.joukkue !== 'molemmat') osat.push(tila.joukkue);
+    var hash = osat.length ? '#' + osat.join('/') : '';
+    if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname + location.search);
+  }
+
+  function paivita() {
+    var maarat = { koti: 0, vieras: 0 };
+    var ensimmainen = null;
+    kortit.forEach(function (k) {
+      k.classList.remove('seuraava');
+      k.querySelector('.seuraavaMerkki').hidden = true;
+      if (k.dataset.ohi) { k.hidden = true; return; }
+      var joukkueOk = tila.joukkue === 'molemmat' || k.dataset.joukkue === tila.joukkue;
+      if (joukkueOk && maarat[k.dataset.paikka] !== undefined) maarat[k.dataset.paikka]++;
+      var nakyy = joukkueOk && k.dataset.paikka === tila.paikka;
+      k.hidden = !nakyy;
+      if (nakyy && !ensimmainen) ensimmainen = k;
+    });
+    if (ensimmainen) {
+      ensimmainen.classList.add('seuraava');
+      ensimmainen.querySelector('.seuraavaMerkki').hidden = false;
+    }
+    document.querySelectorAll('.paiva').forEach(function (p) {
+      p.hidden = !p.querySelector('.ottelu:not([hidden])');
+    });
+    document.querySelectorAll('.nakymat button').forEach(function (b) {
+      b.setAttribute('aria-selected', String(b.dataset.paikka === tila.paikka));
+      b.querySelector('.maara').textContent = maarat[b.dataset.paikka];
+    });
+    document.querySelectorAll('.joukkuevalinta button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.joukkue === tila.joukkue));
+    });
+    var tyhja = document.getElementById('tyhja');
+    if (!ensimmainen) {
+      var kuka = tila.joukkue === 'molemmat' ? '' : NIMET[tila.joukkue] + ': ';
+      tyhja.textContent = kuka + 'Ei tulevia ' + (tila.paikka === 'koti' ? 'kotiotteluita' : 'vierasotteluita') + ' tiedossa.';
+    }
+    tyhja.hidden = !!ensimmainen;
+    kerroKorkeus();
+  }
+
+  document.querySelectorAll('.nakymat button').forEach(function (b) {
+    b.addEventListener('click', function () { tila.paikka = b.dataset.paikka; kirjoitaOsoite(); paivita(); });
+  });
+  document.querySelectorAll('.joukkuevalinta button').forEach(function (b) {
+    b.addEventListener('click', function () { tila.joukkue = b.dataset.joukkue; kirjoitaOsoite(); paivita(); });
+  });
+
+  // Upotettuna sivu kertoo korkeutensa isäntäsivulle, joka säätää iframen.
+  function kerroKorkeus() {
+    if (window.parent === window) return;
+    window.parent.postMessage({ tyyppi: 'puhu-pelit-korkeus', korkeus: document.documentElement.scrollHeight }, '*');
+  }
+  window.addEventListener('load', kerroKorkeus);
+  window.addEventListener('resize', kerroKorkeus);
+
+  var tilaus = document.getElementById('tilaus');
+  if (tilaus) {
+    if (window.matchMedia('(min-width: 720px)').matches && !document.documentElement.classList.contains('upotus')) tilaus.open = true;
+    tilaus.addEventListener('toggle', kerroKorkeus);
+  }
+  var kopioi = document.getElementById('kopioi');
+  if (kopioi) kopioi.addEventListener('click', function () {
+    var teksti = kopioi.dataset.osoite, alkup = kopioi.textContent;
+    var valmis = function () { kopioi.textContent = 'Kopioitu'; setTimeout(function () { kopioi.textContent = alkup; }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(teksti).then(valmis, function () { window.prompt('Kopioi osoite:', teksti); });
+    else window.prompt('Kopioi osoite:', teksti);
+  });
+
+  lueOsoite();
+  paivita();
+})();
+</script>
+</body>
+</html>
