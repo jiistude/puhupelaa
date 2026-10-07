@@ -132,6 +132,12 @@
   }
   .basketfi:hover { text-decoration-color: var(--punainen); }
   .tyhja { color: var(--himmea); padding: 2rem 0 .5rem; margin: 0; }
+  .lisaa {
+    display: block; width: 100%; margin-top: 1rem; font: inherit; cursor: pointer;
+    background: var(--tausta); color: var(--teksti); border: 2px solid var(--musta);
+    padding: .8rem 1rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+  }
+  .lisaa:hover { background: var(--musta); color: #fff; }
   .huomio { background: var(--pinta); border-left: 4px solid var(--punainen); padding: .8rem 1rem; margin: 1.5rem 0 0; font-size: .95rem; }
 
   /* Kalenteritilaus */
@@ -819,6 +825,7 @@
       </article>
     </section>
     <p class="tyhja" id="tyhja" hidden></p>
+    <button type="button" class="lisaa" id="naytaKaikki" hidden></button>
   </main>
 
   
@@ -834,7 +841,7 @@
   </details>
 
   <footer>
-    <p>Päivitetty 7. lokakuuta 2026 klo 18.17. Lähde: <a href="https://tulospalvelu.basket.fi/" target="_blank" rel="noopener">Koripalloliiton tulospalvelu</a>.</p>
+    <p>Päivitetty 7. lokakuuta 2026 klo 18.39. Lähde: <a href="https://tulospalvelu.basket.fi/" target="_blank" rel="noopener">Koripalloliiton tulospalvelu</a>.</p>
     <p class="seura"><a href="https://www.puhujuniorit.fi">PuHu Juniorit ry</a></p>
   </footer>
 </div>
@@ -842,10 +849,12 @@
 <script>
 (function () {
   var OLETUSKESTO = 120;
+  // Montako ottelua näytetään ennen "Näytä kaikki" -painiketta. 0 = kaikki.
+  var RAJA = 6;
   var NIMET = {"puhuttaret":"Puhuttaret","miehet":"PuHu Miehet"};
   var kortit = [].slice.call(document.querySelectorAll('.ottelu'));
   // Oletuksena kotipelit: tärkein kysymys on, milloin on seuraava kotipeli.
-  var tila = { paikka: 'koti', joukkue: 'molemmat' };
+  var tila = { paikka: 'koti', joukkue: 'molemmat', kaikki: false };
 
   // Sivu on rakennettu ehkä tunteja sitten: jo pelatut ottelut piiloon heti.
   var nyt = Date.now();
@@ -873,16 +882,23 @@
   function paivita() {
     var maarat = { koti: 0, vieras: 0 };
     var ensimmainen = null;
+    var naytetty = 0, piilossa = 0;
     kortit.forEach(function (k) {
       k.classList.remove('seuraava');
       k.querySelector('.seuraavaMerkki').hidden = true;
       if (k.dataset.ohi) { k.hidden = true; return; }
       var joukkueOk = tila.joukkue === 'molemmat' || k.dataset.joukkue === tila.joukkue;
       if (joukkueOk && maarat[k.dataset.paikka] !== undefined) maarat[k.dataset.paikka]++;
-      var nakyy = joukkueOk && k.dataset.paikka === tila.paikka;
+      var sopii = joukkueOk && k.dataset.paikka === tila.paikka;
+      var nakyy = sopii && (tila.kaikki || !RAJA || naytetty < RAJA);
+      if (sopii && !nakyy) piilossa++;
+      if (nakyy) naytetty++;
       k.hidden = !nakyy;
       if (nakyy && !ensimmainen) ensimmainen = k;
     });
+    var lisaa = document.getElementById('naytaKaikki');
+    lisaa.hidden = piilossa === 0;
+    lisaa.textContent = 'Näytä kaikki ' + (tila.paikka === 'koti' ? 'kotipelit' : 'vieraspelit') + ' (' + piilossa + ' lisää)';
     if (ensimmainen) {
       ensimmainen.classList.add('seuraava');
       ensimmainen.querySelector('.seuraavaMerkki').hidden = false;
@@ -907,10 +923,13 @@
   }
 
   document.querySelectorAll('.nakymat button').forEach(function (b) {
-    b.addEventListener('click', function () { tila.paikka = b.dataset.paikka; kirjoitaOsoite(); paivita(); });
+    b.addEventListener('click', function () { tila.paikka = b.dataset.paikka; tila.kaikki = false; kirjoitaOsoite(); paivita(); });
+  });
+  document.getElementById('naytaKaikki').addEventListener('click', function () {
+    tila.kaikki = true; paivita();
   });
   document.querySelectorAll('.joukkuevalinta button').forEach(function (b) {
-    b.addEventListener('click', function () { tila.joukkue = b.dataset.joukkue; kirjoitaOsoite(); paivita(); });
+    b.addEventListener('click', function () { tila.joukkue = b.dataset.joukkue; tila.kaikki = false; kirjoitaOsoite(); paivita(); });
   });
 
   // Upotettuna sivu kertoo korkeutensa isäntäsivulle, joka säätää iframen.
