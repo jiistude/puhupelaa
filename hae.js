@@ -312,7 +312,7 @@ const CSS = `
     margin: .6rem 0 0; color: var(--punainen); font-weight: 500;
     text-transform: uppercase; letter-spacing: .06em; font-size: 1.1rem;
   }
-  .selite { color: var(--himmea); margin: 1rem 0 0; max-width: 36rem; }
+  .selite { color: var(--himmea); margin: 1rem 0 0; }
   .selite p { margin: 0 0 .7rem; }
   .selite p:last-child { margin-bottom: 0; }
   .selite strong { color: var(--teksti); font-weight: 600; }
