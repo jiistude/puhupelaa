@@ -21,7 +21,7 @@ const fs = require("fs");
 const path = require("path");
 
 const JUURI = __dirname;
-const ULOS = path.join(JUURI, process.env.ULOS || "docs");
+const ULOS = path.resolve(JUURI, process.env.ULOS || "docs");
 const KONFIG = process.env.KONFIG || "joukkueet.json";
 const asetukset = JSON.parse(fs.readFileSync(path.join(JUURI, KONFIG), "utf8"));
 const TZ = asetukset.aikavyohyke || "Europe/Helsinki";
@@ -199,6 +199,43 @@ async function haeJoukkue(j) {
   return ottelut;
 }
 
+/* ------------------------------------------------- kuvaustekstin muotoilu */
+
+// Kuvaus voi olla merkkijono tai lista merkkijonoja (yksi kappale per alkio).
+// Merkkijonossa tyhjä rivi (\n\n) aloittaa uuden kappaleen ja yksi \n vaihtaa riviä.
+function kuvauksenKappaleet(kuvaus) {
+  const osat = Array.isArray(kuvaus) ? kuvaus : [String(kuvaus ?? "")];
+  return osat.flatMap((o) => String(o).split(/\n\s*\n/)).map((k) => k.trim()).filter(Boolean);
+}
+
+// Teksti suojataan aina ensin, ja vasta sen jälkeen sallitaan kaksi merkintää:
+// [teksti](osoite) ja **lihavointi**. Näin yksikään kulmasulku ei voi rikkoa sivua.
+function muotoileRivi(teksti) {
+  return esc(teksti)
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (koko, nimi, osoite) => {
+      if (!/^(https?:\/\/|mailto:|\/|#)/.test(osoite)) {
+        console.error(`kuvaus: ohitettiin linkki "${osoite}" (sallittuja ovat https://, mailto:, / ja #).`);
+        return nimi;
+      }
+      const uusi = /^https?:\/\//.test(osoite) ? ' target="_blank" rel="noopener"' : "";
+      return `<a href="${osoite}"${uusi}>${nimi}</a>`;
+    })
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\n/g, "<br>");
+}
+
+function muotoileKuvaus(kuvaus) {
+  return kuvauksenKappaleet(kuvaus).map((k) => `<p>${muotoileRivi(k)}</p>`).join("\n    ");
+}
+
+// Sama teksti ilman merkintöjä linkin esikatselua (WhatsApp ym.) varten.
+function riisuKuvaus(kuvaus) {
+  return kuvauksenKappaleet(kuvaus).join(" ")
+    .replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\s+/g, " ").trim();
+}
+
 /* ------------------------------------------------------------------ HTML */
 
 const KUUKAUDET = ["tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta",
@@ -276,6 +313,11 @@ const CSS = `
     text-transform: uppercase; letter-spacing: .06em; font-size: 1.1rem;
   }
   .selite { color: var(--himmea); margin: 1rem 0 0; max-width: 36rem; }
+  .selite p { margin: 0 0 .7rem; }
+  .selite p:last-child { margin-bottom: 0; }
+  .selite strong { color: var(--teksti); font-weight: 600; }
+  .selite a { color: var(--punainen); text-underline-offset: 3px; }
+  .selite a:hover { color: var(--punainen-tumma); }
 
   /* Valinnat */
   .valinnat { position: sticky; top: 0; z-index: 2; background: var(--tausta); padding: .9rem 0 .75rem; border-bottom: 1px solid var(--raja); }
@@ -432,7 +474,7 @@ function rakennaHtml({ tulevat, puuttuvat, paivitetty }) {
   const seuraavaKoti = tulevat.find((o) => o.paikka === "koti");
   const jakoKuvaus = seuraavaKoti
     ? `Seuraava kotipeli: ${seuraavaKoti.koti} – ${seuraavaKoti.vieras}, ${pitkaPaiva(seuraavaKoti.paiva)} klo ${seuraavaKoti.kello.replace(":", ".")}${seuraavaKoti.halli ? `, ${seuraavaKoti.halli.split(",")[0]}` : ""}. ${asetukset.kotipelien_huomautus ?? "Vapaa pääsy"}.`
-    : (asetukset.kuvaus || "");
+    : riisuKuvaus(asetukset.kuvaus);
   const otsikko = `${asetukset.otsikko} | PuHu`;
   const logoKuva = asetukset.logo
     ? `<img src="${esc(asetukset.logo)}" alt="PuHu Vantaa" width="750" height="274" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="logoteksti" hidden>PuHu Juniorit</span>`
@@ -471,7 +513,9 @@ ${osoite && asetukset.logo && !/^https?:/.test(asetukset.logo) ? `<meta property
   <header class="otsikko">
     <h1>${esc(asetukset.otsikko)}</h1>
     ${asetukset.alaotsikko ? `<p class="alaotsikko">${esc(asetukset.alaotsikko)}</p>` : ""}
-    ${asetukset.kuvaus ? `<p class="selite">${esc(asetukset.kuvaus)}</p>` : ""}
+    ${kuvauksenKappaleet(asetukset.kuvaus).length ? `<div class="selite">
+    ${muotoileKuvaus(asetukset.kuvaus)}
+    </div>` : ""}
   </header>
 
   <div class="valinnat">
