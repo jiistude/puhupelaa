@@ -23,10 +23,12 @@
       "nimi": "PuHu Miehet",
       "tunniste": "miehet",
       "nimi_syotteessa": "PuHu Juniorit",
+      "nimi_ottelussa": "PuHu",
       "vari": "#111111",
       "kalenteri": "https://koripallo-api.torneopal.fi/calendar/team/1011"
     }
   ],
+  "naytettavat_ottelut": 6,
   "tulevat_paivat": 300,
   "ottelun_kesto_min": 120
 }
