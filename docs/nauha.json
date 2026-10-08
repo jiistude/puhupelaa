@@ -1,0 +1,151 @@
+{
+  "versio": 1,
+  "paivitetty": "8. lokakuuta 2026 klo 17.16",
+  "sivu": "https://pelit.puhujuniorit.fi",
+  "huomautus": "Vapaa pääsy",
+  "kesto_min": 120,
+  "joukkueet": {
+    "puhuttaret": {
+      "nimi": "Puhuttaret",
+      "vari": "#D62A32"
+    },
+    "miehet": {
+      "nimi": "PuHu Miehet",
+      "vari": "#111111"
+    }
+  },
+  "kotipelit": [
+    {
+      "alku": "2026-10-23T14:30:00.000Z",
+      "paiva": "2026-10-23",
+      "kello": "17:30",
+      "koti": "Puhuttaret",
+      "vieras": "Helsingin NMKY",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019772"
+    },
+    {
+      "alku": "2026-10-23T17:00:00.000Z",
+      "paiva": "2026-10-23",
+      "kello": "20:00",
+      "koti": "PuHu",
+      "vieras": "Raiders Basket",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006882"
+    },
+    {
+      "alku": "2026-11-01T12:00:00.000Z",
+      "paiva": "2026-11-01",
+      "kello": "14:00",
+      "koti": "Puhuttaret",
+      "vieras": "Äänekosken Huima",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019773"
+    },
+    {
+      "alku": "2026-11-01T15:00:00.000Z",
+      "paiva": "2026-11-01",
+      "kello": "17:00",
+      "koti": "PuHu",
+      "vieras": "BC Nokia",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006883"
+    },
+    {
+      "alku": "2026-11-15T12:00:00.000Z",
+      "paiva": "2026-11-15",
+      "kello": "14:00",
+      "koti": "Puhuttaret",
+      "vieras": "Turun NMKY",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019774"
+    },
+    {
+      "alku": "2026-11-15T15:00:00.000Z",
+      "paiva": "2026-11-15",
+      "kello": "17:00",
+      "koti": "PuHu",
+      "vieras": "Tapiolan Honka II",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006884"
+    },
+    {
+      "alku": "2026-12-04T16:30:00.000Z",
+      "paiva": "2026-12-04",
+      "kello": "18:30",
+      "koti": "PuHu",
+      "vieras": "Turun NMKY",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006885"
+    },
+    {
+      "alku": "2026-12-05T15:00:00.000Z",
+      "paiva": "2026-12-05",
+      "kello": "17:00",
+      "koti": "PuHu",
+      "vieras": "Kataja Basket Academy",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006886"
+    },
+    {
+      "alku": "2026-12-13T15:00:00.000Z",
+      "paiva": "2026-12-13",
+      "kello": "17:00",
+      "koti": "Puhuttaret",
+      "vieras": "Pyrintö Akatemia",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019775"
+    },
+    {
+      "alku": "2026-12-18T15:30:00.000Z",
+      "paiva": "2026-12-18",
+      "kello": "17:30",
+      "koti": "Puhuttaret",
+      "vieras": "Pantterit",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019776"
+    },
+    {
+      "alku": "2026-12-18T18:00:00.000Z",
+      "paiva": "2026-12-18",
+      "kello": "20:00",
+      "koti": "PuHu",
+      "vieras": "Hyvinkään Ponteva",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006887"
+    },
+    {
+      "alku": "2027-01-10T15:00:00.000Z",
+      "paiva": "2027-01-10",
+      "kello": "17:00",
+      "koti": "Puhuttaret",
+      "vieras": "Leppävaaran Pyrintö",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019777"
+    }
+  ]
+}
