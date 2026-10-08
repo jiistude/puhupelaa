@@ -1,5 +1,5 @@
 /*
- * PuHu – "Seuraavat kotipelit" -nauha puhujuniorit.fi:n sivuille.
+ * PuHu – "Seuraavat kotipelit" -nauha (oletuksena kaksi seuraavaa kotipeliä, data-maara muuttaa) puhujuniorit.fi:n sivuille.
  *
  * Squarespacen Code-lohkoon:
  *
@@ -49,13 +49,16 @@
     ".puhu-nauha .pn-tunniste{min-width:9.6em;text-align:center;padding:3px 7px;color:#fff;font-size:11px;font-weight:600;line-height:1.2;text-transform:uppercase;letter-spacing:.1em}",
     ".puhu-nauha .pn-ottelu strong{font-weight:700}",
     ".puhu-nauha .pn-rivihalli{flex-basis:100%;padding-left:calc(3.1em + 12px);color:#5E5E5E;font-size:14px}",
+    ".puhu-nauha.pn-monipaiva .pn-kello{min-width:8.4em}",
+    ".puhu-nauha.pn-monipaiva .pn-rivihalli{padding-left:calc(8.4em + 12px)}",
+    ".puhu-nauha .pn-rivipaiva{text-transform:uppercase;letter-spacing:.03em}",
     ".puhu-nauha .pn-nappi{flex:0 0 auto;display:inline-block;padding:14px 22px;border:0;background:#D62A32;color:#fff!important;font-size:14px;font-weight:600;text-decoration:none!important;text-transform:uppercase;letter-spacing:.1em}",
     ".puhu-nauha .pn-nappi:hover{background:#B5222A}",
     "@media (max-width:640px){",
     ".puhu-nauha{gap:14px;padding:16px 16px 18px}",
     ".puhu-nauha .pn-paiva{font-size:19px}",
     ".puhu-nauha .pn-peli{font-size:16px}",
-    ".puhu-nauha .pn-rivihalli{padding-left:0}",
+    ".puhu-nauha .pn-rivihalli,.puhu-nauha.pn-monipaiva .pn-rivihalli{padding-left:0}",
     ".puhu-nauha .pn-nappi{width:100%;text-align:center}",
     "}"
   ].join("");
@@ -90,31 +93,34 @@
     return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(halli);
   }
 
-  // Seuraavan pelipäivän kotiottelut, tai tyhjä lista.
-  function valitse(data, joukkue, nytMs) {
+  // Seuraavat `maara` kotiottelua (oletus 2) päivästä riippumatta. Määrä on kiinteä, jotta
+  // nauhan korkeus pysyy samana. Saman illan kolmas peli löytyy pelit-sivulta.
+  function valitse(data, joukkue, maara, nytMs) {
     var kesto = (Number(data.kesto_min) > 0 ? Number(data.kesto_min) : 120) * 60000;
-    var tulevat = (data.kotipelit || []).filter(function (o) {
+    return (data.kotipelit || []).filter(function (o) {
       return (!joukkue || o.joukkue === joukkue) && Date.parse(o.alku) + kesto >= nytMs;
-    });
-    if (!tulevat.length) return [];
-    var paiva = tulevat[0].paiva;
-    return tulevat.filter(function (o) { return o.paiva === paiva; });
+    }).slice(0, maara);
   }
 
   function piirra(el, data, nytMs) {
     var joukkue = el.getAttribute("data-joukkue") || "";
-    var pelit = valitse(data, joukkue, nytMs);
+    var maara = parseInt(el.getAttribute("data-maara"), 10) > 0 ? parseInt(el.getAttribute("data-maara"), 10) : 2;
+    var pelit = valitse(data, joukkue, maara, nytMs);
     if (!pelit.length) { el.hidden = true; el.innerHTML = ""; return; }
 
     var hallit = pelit.map(function (o) { return o.halli || ""; });
     var samaHalli = hallit.every(function (h) { return h === hallit[0]; }) && hallit[0];
+    // Samana päivänä pelattavat: päivä kerran otsikossa. Eri päivinä: päivä jokaisella rivillä.
+    var samaPaiva = pelit.every(function (o) { return o.paiva === pelit[0].paiva; });
     var joukkueet = data.joukkueet || {};
     var sivu = (data.sivu || LAHDE.replace(/\/$/, "")) + "/" + (joukkue ? "#" + encodeURIComponent(joukkue) : "");
 
     var rivit = pelit.map(function (o) {
       var j = joukkueet[o.joukkue] || { nimi: o.joukkue, vari: "#111111" };
       var sisalto =
-        '<span class="pn-kello">' + esc(o.kello) + "</span>" +
+        '<span class="pn-kello">' +
+          (samaPaiva ? "" : '<span class="pn-rivipaiva">' + esc(paivaTeksti(o.paiva, nytMs)) + "</span> ") +
+          esc(o.kello) + "</span>" +
         '<span class="pn-tunniste" style="background:' + esc(j.vari) + '">' + esc(j.nimi) + "</span>" +
         '<span class="pn-ottelu"><strong>' + esc(o.koti) + "</strong> &ndash; " + esc(o.vieras) + "</span>" +
         (!samaHalli && o.halli ? '<span class="pn-rivihalli">' + esc(lyhytHalli(o.halli)) + "</span>" : "");
@@ -130,11 +136,11 @@
 
     el.hidden = false;
     el.innerHTML =
-      '<section class="puhu-nauha" aria-label="' + otsake + '">' +
+      '<section class="puhu-nauha' + (samaPaiva ? "" : " pn-monipaiva") + '" aria-label="' + otsake + '">' +
         '<div class="pn-sisalto">' +
           '<div class="pn-paa">' +
             '<p class="pn-otsake">' + otsake + "</p>" +
-            '<span class="pn-paiva">' + esc(paivaTeksti(pelit[0].paiva, nytMs)) + "</span>" +
+            (samaPaiva ? '<span class="pn-paiva">' + esc(paivaTeksti(pelit[0].paiva, nytMs)) + "</span>" : "") +
             (samaHalli ? '<a class="pn-halli" href="' + esc(karttalinkki(samaHalli)) + '" target="_blank" rel="noopener">' + esc(lyhytHalli(samaHalli)) + "</a>" : "") +
             (data.huomautus ? '<span class="pn-vapaa">' + LIPPU + esc(data.huomautus) + "</span>" : "") +
           "</div>" +

@@ -112,9 +112,10 @@ näköiseksi, ja logosta pääsee takaisin puhujuniorit.fi:n etusivulle.
 
 ### 4. Seuraavat kotipelit -nauha etusivulle
 
-Etusivulle (tai mille tahansa sivulle) saa kompaktin nauhan, joka näyttää seuraavan
-kotipelipäivän: päivä, halli, vapaa pääsy ja päivän ottelut kellonaikoineen, sekä painikkeen
-tälle sivulle. Lisää Squarespaceen *Code*-lohko, esim. heti hero-karusellin alle:
+Etusivulle (tai mille tahansa sivulle) saa kompaktin nauhan, joka näyttää kaksi seuraavaa
+kotipeliä päivästä riippumatta: halli, vapaa pääsy ja ottelut päivineen ja kellonaikoineen,
+sekä painikkeen tälle sivulle. Jos molemmat pelit ovat samana päivänä, päivä näkyy kerran
+otsikkorivillä; muuten jokaisella rivillä. Lisää Squarespaceen *Code*-lohko, esim. heti hero-karusellin alle:
 
 ```html
 <div id="puhu-nauha"></div>
@@ -122,8 +123,9 @@ tälle sivulle. Lisää Squarespaceen *Code*-lohko, esim. heti hero-karusellin a
 ```
 
 - Nauha hakee tiedot tiedostosta `nauha.json`, jonka `hae.js` kirjoittaa jokaisella ajolla.
-  Ottelu poistuu nauhasta itsestään noin kaksi tuntia alkamisensa jälkeen, ja nauha siirtyy
-  seuraavaan kotipelipäivään ilman uutta ajoa.
+  Ottelu poistuu nauhasta itsestään noin kaksi tuntia alkamisensa jälkeen, ja tilalle tulee
+  seuraava kotipeli ilman uutta ajoa.
+- Näytettävien pelien määrä: `<div id="puhu-nauha" data-maara="3"></div>` (oletus 2).
 - Jos kotipelejä ei ole tiedossa (esim. joulutauko) tai haku epäonnistuu, nauha ei näy
   lainkaan.
 - Vain yhden joukkueen pelit, esim. joukkuesivulle: `<div id="puhu-nauha" data-joukkue="puhuttaret"></div>`
