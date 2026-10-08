@@ -123,7 +123,10 @@
         : '<li><span class="pn-peli">' + sisalto + "</span></li>";
     }).join("");
 
-    var otsake = pelit.length > 1 ? "Seuraavat kotipelit" : "Seuraava kotipeli";
+    // Joukkueeseen rajatussa nauhassa (data-joukkue) "Edustusjoukkueiden" olisi harhaanjohtava.
+    var otsake = (joukkue ? "" : "Edustusjoukkueiden ") +
+      (pelit.length > 1 ? "seuraavat kotipelit" : "seuraava kotipeli");
+    otsake = otsake.charAt(0).toUpperCase() + otsake.slice(1);
 
     el.hidden = false;
     el.innerHTML =
