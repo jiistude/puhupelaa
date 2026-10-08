@@ -8,6 +8,7 @@
  *   pelit-<tunniste>.ics    yhden joukkueen ottelut
  *   pelit-koti.ics          vain kotiottelut
  *   ottelut.json            sama data koneluettavana
+ *   nauha.json              seuraavat kotipelit etusivun nauhalle (docs/nauha.js)
  *
  * Käyttö:
  *   node hae.js                                   normaali ajo
@@ -728,6 +729,36 @@ function rakennaIcs(ottelut, nimi) {
   return rivit.join("\r\n") + "\r\n";
 }
 
+/* --------------------------------------------------- etusivun nauha */
+
+// docs/nauha.js (puhujuniorit.fi:n etusivun "Seuraavat kotipelit" -nauha) lukee tämän.
+// Oma, kevyt muoto, jotta sivun tai ottelut.json:n muutokset eivät riko nauhaa.
+// Muuta kenttiä vain yhteensopivasti; rikkova muutos = uusi versio-numero ja nauha.js samaan tahtiin.
+function rakennaNauha(tulevat, paivitetty) {
+  const joukkueet = {};
+  for (const j of asetukset.joukkueet) {
+    joukkueet[j.tunniste || tunnisteeksi(j.nimi)] = { nimi: j.nimi, vari: j.vari || "#111111" };
+  }
+  return {
+    versio: 1,
+    paivitetty,
+    sivu: asetukset.sivun_osoite || "",
+    huomautus: asetukset.kotipelien_huomautus ?? "Vapaa pääsy",
+    kesto_min: KESTO_MIN,
+    joukkueet,
+    // Useampi kuin yksi pelipäivä, jotta nauha osaa siirtyä seuraavaan päivään itse
+    // pelien jälkeen, vaikka seuraava päivitysajo olisi vasta myöhemmin.
+    kotipelit: tulevat
+      .filter((o) => o.paikka === "koti")
+      .slice(0, 12)
+      .map((o) => ({
+        alku: o.alku, paiva: o.paiva, kello: o.kello,
+        koti: o.koti, vieras: o.vieras, joukkue: o.tunniste,
+        sarja: o.sarja, halli: o.halli, linkki: o.linkki,
+      })),
+  };
+}
+
 /* ------------------------------------------------------------------ ajo */
 
 async function main() {
@@ -778,6 +809,7 @@ async function main() {
   }
   fs.writeFileSync(path.join(ULOS, "pelit-koti.ics"), rakennaIcs(tulevat.filter((o) => o.paikka === "koti"), "PuHu kotiottelut"));
   fs.writeFileSync(path.join(ULOS, "ottelut.json"), JSON.stringify({ paivitetty, tulevat }, null, 2));
+  fs.writeFileSync(path.join(ULOS, "nauha.json"), JSON.stringify(rakennaNauha(tulevat, paivitetty), null, 2));
   fs.writeFileSync(path.join(ULOS, ".nojekyll"), "");
 
   // Oma osoite talteen, jotta GitHub Pages ei unohda sitä.

@@ -33,6 +33,7 @@ jakaa linkkinä.
 | `hae.js` | Hakee syötteet ja rakentaa sivun. Ei riippuvuuksia. |
 | `.github/workflows/paivita.yml` | Ajaa haun klo ~6 ja ~21 Suomen aikaa sekä jokaisen muutoksen jälkeen |
 | `docs/` | Valmis sivu ja kalenterit (GitHub Pages julkaisee tämän kansion) |
+| `docs/nauha.js` | Etusivun "Seuraavat kotipelit" -nauha, käsin ylläpidetty (ks. kohta 4) |
 | `testi/` | Tallennetut syötteet paikallista testausta varten |
 
 ## Joukkueet
@@ -108,6 +109,33 @@ näköiseksi, ja logosta pääsee takaisin puhujuniorit.fi:n etusivulle.
   ennen kuin lupaat upotuksen kenellekään.
 - Valmiiksi rajattu näkymä, esim. vain Puhuttarien pelit (kotipelit oletuksena):
   `src="https://pelit.puhujuniorit.fi/?upotus=1#puhuttaret"`. Sopii esim. joukkuesivulle.
+
+### 4. Seuraavat kotipelit -nauha etusivulle
+
+Etusivulle (tai mille tahansa sivulle) saa kompaktin nauhan, joka näyttää seuraavan
+kotipelipäivän: päivä, halli, vapaa pääsy ja päivän ottelut kellonaikoineen, sekä painikkeen
+tälle sivulle. Lisää Squarespaceen *Code*-lohko, esim. heti hero-karusellin alle:
+
+```html
+<div id="puhu-nauha"></div>
+<script src="https://pelit.puhujuniorit.fi/nauha.js" defer></script>
+```
+
+- Nauha hakee tiedot tiedostosta `nauha.json`, jonka `hae.js` kirjoittaa jokaisella ajolla.
+  Ottelu poistuu nauhasta itsestään noin kaksi tuntia alkamisensa jälkeen, ja nauha siirtyy
+  seuraavaan kotipelipäivään ilman uutta ajoa.
+- Jos kotipelejä ei ole tiedossa (esim. joulutauko) tai haku epäonnistuu, nauha ei näy
+  lainkaan.
+- Vain yhden joukkueen pelit, esim. joukkuesivulle: `<div id="puhu-nauha" data-joukkue="puhuttaret"></div>`
+  (`miehet` miesten joukkueelle). Painike vie silloin suoraan joukkueen näkymään.
+- Fontti periytyy Squarespacelta, joten nauha näyttää sivuston omalta. Tyylit ovat
+  `.puhu-nauha`-luokan alla eivätkä vaikuta muuhun sivustoon.
+- **Edellyttää, että Squarespace-tilaus sallii skriptit Code-lohkossa.** Jos nauha näkyy vasta,
+  kun sivun lataa uudelleen, mutta ei kun sivulle tulee toiselta sivulta, sivustossa on päällä
+  Ajax-sivunvaihto (7.0-teemat). Nauha yrittää käsitellä sen itse; jos ei onnistu, Ajax-lataus
+  kytketään pois sivuston asetuksista.
+- `docs/nauha.js` on käsin ylläpidetty tiedosto, `hae.js` ei kirjoita sitä. Muutokset näkyvät
+  seuran sivuilla noin kymmenen minuutin kuluessa julkaisusta, eikä Squarespaceen tarvitse koskea.
 
 ## Ulkoasu
 
