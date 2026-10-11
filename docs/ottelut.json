@@ -1,20 +1,6 @@
 {
-  "paivitetty": "11. lokakuuta 2026 klo 12.55",
+  "paivitetty": "12. lokakuuta 2026 klo 0.54",
   "tulevat": [
-    {
-      "match_id": "1019717",
-      "alku": "2026-10-11T14:00:00.000Z",
-      "paiva": "2026-10-11",
-      "kello": "17:00",
-      "koti": "Leppävaaran Pyrintö",
-      "vieras": "Puhuttaret",
-      "sarja": "Naisten I divisioona",
-      "halli": "Leppävaaran liikuntahalli, Veräjäpellonkatu 6, Espoo",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019717",
-      "joukkue": "Puhuttaret",
-      "tunniste": "puhuttaret",
-      "paikka": "vieras"
-    },
     {
       "match_id": "1006872",
       "alku": "2026-10-16T15:30:00.000Z",
