@@ -1,6 +1,6 @@
 {
   "versio": 1,
-  "paivitetty": "12. lokakuuta 2026 klo 13.40",
+  "paivitetty": "12. lokakuuta 2026 klo 21.12",
   "sivu": "https://pelit.puhujuniorit.fi",
   "huomautus": "Vapaa pääsy",
   "kesto_min": 120,
@@ -24,7 +24,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019772"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019772/preview"
     },
     {
       "alku": "2026-10-23T17:00:00.000Z",
@@ -35,7 +35,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006882"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006882/preview"
     },
     {
       "alku": "2026-11-01T12:00:00.000Z",
@@ -46,7 +46,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019773"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019773/preview"
     },
     {
       "alku": "2026-11-01T15:00:00.000Z",
@@ -57,7 +57,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006883"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006883/preview"
     },
     {
       "alku": "2026-11-15T12:00:00.000Z",
@@ -68,7 +68,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019774"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019774/preview"
     },
     {
       "alku": "2026-11-15T15:00:00.000Z",
@@ -79,7 +79,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006884"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006884/preview"
     },
     {
       "alku": "2026-12-04T16:30:00.000Z",
@@ -90,7 +90,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006885"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006885/preview"
     },
     {
       "alku": "2026-12-05T15:00:00.000Z",
@@ -101,7 +101,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006886"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006886/preview"
     },
     {
       "alku": "2026-12-13T15:00:00.000Z",
@@ -112,7 +112,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019775"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019775/preview"
     },
     {
       "alku": "2026-12-18T15:30:00.000Z",
@@ -123,7 +123,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019776"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019776/preview"
     },
     {
       "alku": "2026-12-18T18:00:00.000Z",
@@ -134,7 +134,7 @@
       "joukkue": "miehet",
       "sarja": "Miesten I divisioona B",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006887"
+      "linkki": "https://tulospalvelu.basket.fi/match/1006887/preview"
     },
     {
       "alku": "2027-01-10T15:00:00.000Z",
@@ -145,7 +145,7 @@
       "joukkue": "puhuttaret",
       "sarja": "Naisten I divisioona",
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019777"
+      "linkki": "https://tulospalvelu.basket.fi/match/1019777/preview"
     }
   ]
 }
