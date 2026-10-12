@@ -145,6 +145,27 @@ function paatteleOmaJoukkue(ottelut) {
   return eniten >= 2 ? paras : "";
 }
 
+/* ----------------------------------------------------- tulospalvelulinkki */
+
+// Tulospalvelu vaatii lokakuusta 2026 alkaen osoitteeseen alasivun nimen
+// (pelkkä /match/<numero> ei enää avaa ottelua). Osoitemalli on asetus, jotta
+// seuraava vastaava muutos on yhden rivin korjaus joukkueet.json-tiedostoon.
+// Sivulla on vain tulevia otteluita, joten pelattujen otteluiden mallia ei tarvita.
+const OSOITE_TULEVA = "https://tulospalvelu.basket.fi/match/{id}/preview";
+let osoitemalliVaroitettu = false;
+
+function otteluOsoite(id) {
+  const malli = String(asetukset.ottelun_osoite_tuleva || OSOITE_TULEVA);
+  if (!malli.includes("{id}")) {
+    if (!osoitemalliVaroitettu) {
+      console.error(`ottelun_osoite_tuleva: mallista puuttuu {id} ("${malli}"). Ottelulinkit jätetään pois.`);
+      osoitemalliVaroitettu = true;
+    }
+    return "";
+  }
+  return malli.replace("{id}", encodeURIComponent(id));
+}
+
 /* ------------------------------------------------------------------ haku */
 
 async function haeSyote(osoite) {
@@ -174,7 +195,7 @@ async function haeJoukkue(j) {
       kello: kelloTZ(alku),
       koti, vieras, sarja,
       halli: (t.LOCATION?.arvo || "").replace(/\s+/g, " ").trim(),
-      linkki: id ? `https://tulospalvelu.basket.fi/match/${id}` : (t.URL?.arvo || ""),
+      linkki: id ? otteluOsoite(id) : (t.URL?.arvo || ""),
       joukkue: j.nimi,
       tunniste: j.tunniste || tunnisteeksi(j.nimi),
       paikka: "",

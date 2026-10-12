@@ -7,6 +7,7 @@
   "logo": "logo.png",
   "favicon": "https://images.squarespace-cdn.com/content/v1/5c5bf24a11f784550b1ad53f/1559220481832-BZU8HKKZGW7XRASM0KPN/favicon.ico?format=100w",
   "kotipelien_huomautus": "Vapaa pääsy",
+  "ottelun_osoite_tuleva": "https://tulospalvelu.basket.fi/match/{id}/preview",
   "aikavyohyke": "Europe/Helsinki",
   "joukkueet": [
     {

@@ -172,3 +172,17 @@ Avaa `docs/index.html` selaimessa. Normaali `node hae.js` hakee syötteet verkos
 - **Toisen joukkueen haku epäonnistuu:** sivu rakentuu toisen joukkueen tiedoilla ja näyttää
   huomautuksen.
 - **Ottelu puuttuu koti/vieras-näkymistä:** `nimi_syotteessa` ei täsmää tulospalvelun nimeen.
+- **Ottelulinkki avaa tulospalvelun, mutta ottelua ei löydy:** tulospalvelun osoitemuoto on
+  muuttunut. Näin kävi lokakuussa 2026, jolloin pelkkä `…/match/<numero>` lakkasi toimimasta
+  ja osoitteen perään tarvittiin `/preview`. Avaa jokin tuleva ottelu tulospalvelussa
+  selaimella, kopioi osoite ja korvaa siinä ottelunumero merkinnällä `{id}`. Laita tulos
+  `joukkueet.json`-tiedostoon:
+
+  ```json
+  "ottelun_osoite_tuleva": "https://tulospalvelu.basket.fi/match/{id}/preview",
+  ```
+
+  Ottelunumerot tulevat kalenterisyötteestä, joten niitä ei tarvitse muuttaa. Jos mallista
+  puuttuu `{id}`, linkit jätetään pois eikä sivulle tule rikkinäisiä linkkejä (ajon loki
+  kertoo tästä). Huom: tulospalvelu on JavaScript-sovellus, joka vastaa onnistuneesti
+  kaikkiin osoitteisiin. Rikkinäisen linkin näkee siis vain avaamalla sen selaimessa.
