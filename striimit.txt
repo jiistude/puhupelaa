@@ -1,0 +1,60 @@
+# KorisTV-striimit
+#
+# Yksi rivi per peli:  PÄIVÄMÄÄRÄ KELLO [JOUKKUE] OSOITE  [# vapaa kommentti]
+#
+#   2026-10-23 17:30 puhuttaret https://koristv.fi/puhuttaret/games/g/xpwwba5
+#
+# - Kelloksi käy ottelun alkamisaika tai KorisTV:n lähetyksen alkamisaika
+#   (yleensä 5 minuuttia aiemmin). Rivi osuu peliin, joka alkaa enintään
+#   15 minuutin päässä annetusta ajasta.
+# - JOUKKUE on joukkueen tunniste joukkueet.json-tiedostosta: puhuttaret tai
+#   miehet. Se on vapaaehtoinen, mutta kannattaa kirjoittaa, koska molemmilla
+#   joukkueilla voi olla peli samaan aikaan.
+# - Linkin saa KorisTV:stä: koristv.fi/puhuttaret ja koristv.fi/puhu-m1
+#   listaavat joukkueen kaikki tulevat lähetykset, myös vieraspelit.
+# - Jos rivi ei osu mihinkään peliin, ajon loki kertoo siitä.
+# - Rivi, joka alkaa #-merkillä, ohitetaan.
+#
+# Päivitetty 13.10.2026 kanavilta koristv.fi/puhuttaret ja koristv.fi/puhu-m1:
+# kaikki runkosarjan tulevat pelit (Puhuttaret 17, PuHu Miehet 20).
+
+# Puhuttaret (Naisten I divisioona)
+2026-10-23 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/xpwwba5  # Puhuttaret – Helsingin NMKY
+2026-10-25 13:55 puhuttaret https://koristv.fi/honka-n1/games/g/i5dw8xeu  # Tapiolan Honka II – Puhuttaret
+2026-11-01 13:55 puhuttaret https://koristv.fi/puhuttaret/games/g/mg7aipuj  # Puhuttaret – Äänekosken Huima
+2026-11-08 16:55 puhuttaret https://koristv.fi/ebt-n1/games/g/cdelhhnq  # Espoo Basket Team II – Puhuttaret
+2026-11-15 13:55 puhuttaret https://koristv.fi/puhuttaret/games/g/1ta56a8h  # Puhuttaret – Turun NMKY
+2026-12-06 13:55 puhuttaret https://koristv.fi/topo-n1/games/g/q1l3qqae  # ToPo II – Puhuttaret
+2026-12-13 16:55 puhuttaret https://koristv.fi/puhuttaret/games/g/y0i1be4v  # Puhuttaret – Pyrintö Akatemia
+2026-12-18 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/6r00vlt9  # Puhuttaret – Pantterit
+2027-01-08 19:25 puhuttaret https://koristv.fi/hnmky-n1/games/g/blzmcblh  # Helsingin NMKY – Puhuttaret
+2027-01-10 16:55 puhuttaret https://koristv.fi/puhuttaret/games/g/qlzfxxhp  # Puhuttaret – Leppävaaran Pyrintö
+2027-01-15 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/t5udkf2v  # Puhuttaret – Tapiolan Honka II
+2027-01-29 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/ngts4rda  # Puhuttaret – Espoo Basket Team II
+2027-01-31 13:55 puhuttaret https://koristv.fi/huima-n1/games/g/otj6x21o  # Äänekosken Huima – Puhuttaret
+2027-02-21 16:55 puhuttaret https://koristv.fi/tunmky-n1/games/g/novpfn6g  # Turun NMKY – Puhuttaret
+2027-02-26 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/p2s4xv1u  # Puhuttaret – ToPo II
+2027-03-07 13:55 puhuttaret https://koristv.fi/pyrinto-n1/games/g/4er67989  # Pyrintö Akatemia – Puhuttaret
+2027-03-14 13:55 puhuttaret https://koristv.fi/pantterit-n1/games/g/7qpe5jfc  # Pantterit – Puhuttaret
+
+# PuHu Miehet (Miesten I divisioona B, KorisTV:ssä nimellä PuHu Juniorit)
+2026-10-16 18:25 miehet https://koristv.fi/ura-m1/games/g/q2a9egjz  # Ura Basket – PuHu
+2026-10-23 19:55 miehet https://koristv.fi/puhu-m1/games/g/oxjy9oet  # PuHu – Raiders Basket
+2026-10-25 16:55 miehet https://koristv.fi/peu-basket-m1/games/g/6orlq6zi  # PeU-Basket – PuHu
+2026-11-01 16:55 miehet https://koristv.fi/puhu-m1/games/g/efe8jvpa  # PuHu – BC Nokia
+2026-11-12 18:25 miehet https://koristv.fi/ktp-m1/games/g/2ut131h8  # KTP – PuHu
+2026-11-15 16:55 miehet https://koristv.fi/puhu-m1/games/g/lvfx5ede  # PuHu – Tapiolan Honka II
+2026-11-29 16:55 miehet https://koristv.fi/team-pajulahti-m1/games/g/13ecv9da  # Team Pajulahti – PuHu
+2026-12-04 18:25 miehet https://koristv.fi/puhu-m1/games/g/2tyniyd  # PuHu – Turun NMKY
+2026-12-05 16:55 miehet https://koristv.fi/puhu-m1/games/g/dsdy64td  # PuHu – Kataja Basket Academy
+2026-12-18 19:55 miehet https://koristv.fi/puhu-m1/games/g/9eront96  # PuHu – Hyvinkään Ponteva
+2027-01-08 18:25 miehet https://koristv.fi/bcnokia-m1/games/g/t4f4w3h9  # BC Nokia – PuHu
+2027-01-15 19:55 miehet https://koristv.fi/puhu-m1/games/g/f9xezxox  # PuHu – Ura Basket
+2027-01-20 18:55 miehet https://koristv.fi/raiders-m1/games/g/nkcrzkta  # Raiders Basket – PuHu
+2027-01-29 19:55 miehet https://koristv.fi/puhu-m1/games/g/3ap17uff  # PuHu – PeU-Basket
+2027-02-04 18:25 miehet https://koristv.fi/honka-m1/games/g/94uyz5zm  # Tapiolan Honka II – PuHu
+2027-02-14 16:55 miehet https://koristv.fi/puhu-m1/games/g/rt3opanp  # PuHu – KTP
+2027-02-21 16:55 miehet https://koristv.fi/kataja-m1/games/g/64kn58en  # Kataja Basket Academy – PuHu
+2027-02-26 19:55 miehet https://koristv.fi/puhu-m1/games/g/w9jg22ml  # PuHu – Team Pajulahti
+2027-03-05 18:25 miehet https://koristv.fi/tunmky-m1/games/g/quaisk8b  # Turun NMKY – PuHu
+2027-03-21 16:55 miehet https://koristv.fi/hypo-m1/games/g/zzvp2s82  # Hyvinkään Ponteva – PuHu
