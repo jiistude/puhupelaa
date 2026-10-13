@@ -18,6 +18,7 @@ ei tuloksia eikä arkistoa.
 - Kotipeleissä selvästi erottuva merkintä **Vapaa pääsy** (asetus `kotipelien_huomautus`,
   tyhjä merkkijono poistaa sen)
 - Jokaisesta ottelusta linkki tulospalveluun ("Ottelu basket.fi:ssä") ja halli Google Mapsiin
+- *Katso striimi* -linkki KorisTV:n lähetykseen, kun ottelulle on kirjattu striimi (ks. alla)
 - Kalenteritilaukset: kaikki ottelut, kumpikin joukkue erikseen ja vain kotiottelut
 - Jo pelatut ottelut katoavat listalta itsestään noin kaksi tuntia alkamisen jälkeen
 
@@ -53,6 +54,35 @@ kentän `nimi` mukainen nimi. Jos haluat näyttää tulospalvelun nimet sellaisi
 kuin tulospalvelun osoitteessa `tulospalvelu.basket.fi/team/`**`36`**`/fixture`. Vaihda numero
 kenttään `kalenteri` ja tarkista `nimi_syotteessa`. Jos nimi ei täsmää, Actions-ajon loki
 kertoo sen ("joukkuetta ... ei löytynyt"), eikä ottelu näy sivulla lainkaan.
+
+## Striimit — `striimit.txt`
+
+Kalenterisyötteessä ei ole KorisTV-linkkiä, eikä sitä voi päätellä ottelunumerosta, joten
+linkit kirjataan tähän tiedostoon. Ottelukorttiin tulee silloin *Katso striimi* -linkki
+tulospalvelulinkin viereen, ja sama linkki menee kalenterimerkintään ja etusivun nauhan
+tietoihin (`nauha.json`, kenttä `striimi`). Lähetykset ovat KorisTV:ssä maksullisia, mutta
+sitä ei mainita linkissä (sama linjaus kuin StudeBros-sivulla).
+
+```
+2026-10-23 17:25 puhuttaret https://koristv.fi/puhuttaret/games/g/xpwwba5
+2026-10-23 19:55 miehet https://koristv.fi/puhu-m1/games/g/oxjy9oet
+```
+
+- Kelloksi käy ottelun tai lähetyksen alkamisaika (KorisTV:ssä yleensä 5 minuuttia
+  aiemmin). Rivi osuu otteluun, joka alkaa enintään 15 minuutin päässä.
+- Joukkue (`puhuttaret` tai `miehet`) on vapaaehtoinen, mutta kannattaa kirjoittaa, koska
+  molemmilla joukkueilla voi olla peli samana iltana.
+- `#`-merkin jälkeen voi kirjoittaa kommentin, esimerkiksi joukkueet.
+- Jos rivi ei osu mihinkään tulevaan otteluun, ajon loki kertoo siitä. Vanhoja rivejä ei
+  tarvitse poistaa.
+
+**Lähteet:** `koristv.fi/puhuttaret` ja `koristv.fi/puhu-m1` listaavat joukkueen kaikki
+tulevat lähetykset, myös vieraspelit vastustajan kanavalla. Lista täytettiin 13.10.2026
+koko runkosarjalle. Päivitystä tarvitaan, kun ottelu siirtyy tai jatkosarjan pelit
+julkaistaan. Claude päivittää listan pyydettäessä pull requestina.
+
+Linkkejä ei haeta automaattisesti: tulospalvelun tai KorisTV:n ajastettu lukeminen ei
+kuulu sivun periaatteisiin (vain julkiset kalenterisyötteet).
 
 ## Käyttöönotto
 

@@ -261,6 +261,66 @@ function riisuKuvaus(kuvaus) {
     .replace(/\s+/g, " ").trim();
 }
 
+/* ------------------------------------------------------- striimilinkit */
+
+// striimit.txt: yksi rivi per lähetys, "PÄIVÄMÄÄRÄ KELLO [JOUKKUE] OSOITE [# kommentti]".
+// Kalenterisyötteessä ei ole striimilinkkiä, eikä KorisTV:n osoitetta voi päätellä
+// ottelunumerosta, joten linkit kirjataan käsin (samoin kuin StudeBros-sivulla).
+// Kellonajaksi käy ottelun tai lähetyksen alkamisaika (KorisTV:ssä yleensä 5 min
+// aiemmin): rivi osuu otteluun, joka alkaa enintään STRIIMI_TOLERANSSI_MIN minuutin
+// päässä. JOUKKUE on joukkueen tunniste (puhuttaret / miehet) ja vapaaehtoinen.
+const STRIIMI_TOLERANSSI_MIN = 15;
+
+function lueStriimit() {
+  const polku = path.join(JUURI, "striimit.txt");
+  const teksti = fs.existsSync(polku) ? fs.readFileSync(polku, "utf8") : "";
+  const rivit = [];
+  for (const rivi of teksti.split("\n")) {
+    let puhdas = rivi.trim();
+    if (!puhdas || puhdas.startsWith("#")) continue;
+
+    const osoite = puhdas.match(/\bhttps:\/\/[^\s|]+/);
+    if (!osoite) {
+      console.error(`striimit.txt: riviltä puuttuu https-osoite: "${puhdas}".`);
+      continue;
+    }
+    puhdas = (puhdas.slice(0, osoite.index) + puhdas.slice(osoite.index + osoite[0].length))
+      .replace(/\s+#.*$/, "").replace(/\s+/g, " ").trim();
+
+    const osat = puhdas.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2})[:.](\d{2})(?:\s+(\S+))?$/);
+    if (!osat) {
+      console.error(`striimit.txt: en ymmärrä riviä "${rivi.trim()}". Odotettu muoto 2026-10-23 17:30 puhuttaret https://koristv.fi/…`);
+      continue;
+    }
+    rivit.push({
+      alku: seinakelloUTC(+osat[1], +osat[2], +osat[3], +osat[4], +osat[5], TZ).getTime(),
+      teksti: rivi.trim(),
+      joukkue: (osat[6] || "").toLowerCase(),
+      striimi: osoite[0].replace(/[.,;]+$/, ""),
+    });
+  }
+  return rivit;
+}
+
+function liitaStriimit(ottelut) {
+  const striimit = lueStriimit();
+  if (!striimit.length) return;
+  let osui = 0;
+  for (const s of striimit) {
+    const osumat = ottelut.filter((o) =>
+      Math.abs(new Date(o.alku).getTime() - s.alku) <= STRIIMI_TOLERANSSI_MIN * 60000 &&
+      (!s.joukkue || s.joukkue === o.tunniste));
+    if (!osumat.length) {
+      // Pelatut ottelut katoavat syötteestä, joten vanhoista riveistä ei varoiteta.
+      if (s.alku > Date.now()) console.error(`striimit.txt: riville "${s.teksti}" ei löytynyt ottelua.`);
+      continue;
+    }
+    for (const o of osumat) o.striimi = s.striimi;
+    osui++;
+  }
+  console.log(`Striimilinkkejä: ${osui}/${striimit.length} riviä osui otteluun.`);
+}
+
 /* ------------------------------------------------------------------ HTML */
 
 const KUUKAUDET = ["tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta",
@@ -273,6 +333,7 @@ function pitkaPaiva(iso) {
   return `${VIIKONPAIVAT[d.getUTCDay()]} ${p}. ${KUUKAUDET[k - 1]}`;
 }
 
+const PLAY = `<svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>`;
 const LIPPU = `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>`;
 
 function ottelukortti(o, joukkueet) {
@@ -292,7 +353,9 @@ function ottelukortti(o, joukkueet) {
           <div class="joukkueet">${nimi(o.koti, o.paikka === "koti")} <span class="vs">&ndash;</span> ${nimi(o.vieras, o.paikka === "vieras")}</div>
           ${o.halli ? `<a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(o.halli)}">${esc(o.halli)}</a>` : ""}
           ${o.paikka === "koti" && vapaa ? `<div class="vapaa">${LIPPU}${esc(vapaa)}</div>` : ""}
-          ${o.linkki ? `<a class="basketfi" target="_blank" rel="noopener" href="${esc(o.linkki)}">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>` : ""}
+          ${o.linkki || o.striimi ? `<div class="linkit">${
+            o.linkki ? `<a class="basketfi" target="_blank" rel="noopener" href="${esc(o.linkki)}">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>` : ""}${
+            o.striimi ? `<a class="basketfi striimi" target="_blank" rel="noopener" href="${esc(o.striimi)}">${PLAY}Katso striimi <span aria-hidden="true">&rarr;</span></a>` : ""}</div>` : ""}
         </div>
       </article>`;
 }
@@ -408,6 +471,9 @@ const CSS = `
     text-decoration-color: var(--raja); text-decoration-thickness: 2px; text-underline-offset: 4px;
   }
   .basketfi:hover { text-decoration-color: var(--punainen); }
+  /* Tulospalvelu- ja striimilinkki rinnakkain, kapealla näytöllä allekkain. */
+  .linkit { display: flex; flex-wrap: wrap; column-gap: 1.4rem; }
+  .linkit .ikoni { margin-right: .35rem; vertical-align: -1px; color: var(--punainen); }
   .tyhja { color: var(--himmea); padding: 2rem 0 .5rem; margin: 0; }
   .lisaa {
     display: block; width: 100%; margin-top: 1rem; font: inherit; cursor: pointer;
@@ -741,7 +807,7 @@ function rakennaIcs(ottelut, nimi) {
       `DTEND:${utcLeima(loppu)}`,
       taita(`SUMMARY:${icsTeksti(`${o.koti} – ${o.vieras}`)}`),
       taita(`LOCATION:${icsTeksti(o.halli)}`),
-      taita(`DESCRIPTION:${icsTeksti([o.sarja, kv, o.linkki ? `Ottelu basket.fi:ssä: ${o.linkki}` : ""].filter(Boolean).join("\n"))}`),
+      taita(`DESCRIPTION:${icsTeksti([o.sarja, kv, o.linkki ? `Ottelu basket.fi:ssä: ${o.linkki}` : "", o.striimi ? `Striimi: ${o.striimi}` : ""].filter(Boolean).join("\n"))}`),
       ...(o.linkki ? [taita(`URL;VALUE=URI:${o.linkki}`)] : []),
       "END:VEVENT"
     );
@@ -775,7 +841,7 @@ function rakennaNauha(tulevat, paivitetty) {
       .map((o) => ({
         alku: o.alku, paiva: o.paiva, kello: o.kello,
         koti: o.koti, vieras: o.vieras, joukkue: o.tunniste,
-        sarja: o.sarja, halli: o.halli, linkki: o.linkki,
+        sarja: o.sarja, halli: o.halli, linkki: o.linkki, striimi: o.striimi || "",
       })),
   };
 }
@@ -807,6 +873,9 @@ async function main() {
     console.error("Yksikään syöte ei vastannut. Sivua ei kirjoitettu uudelleen.");
     process.exit(1);
   }
+
+  // KorisTV-striimit (striimit.txt).
+  liitaStriimit(kaikki);
 
   // Vain tulevat: ottelu poistuu listalta, kun sen arvioitu kesto on kulunut.
   const nytMs = Date.now();
