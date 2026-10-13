@@ -131,6 +131,9 @@
     text-decoration-color: var(--raja); text-decoration-thickness: 2px; text-underline-offset: 4px;
   }
   .basketfi:hover { text-decoration-color: var(--punainen); }
+  /* Tulospalvelu- ja striimilinkki rinnakkain, kapealla näytöllä allekkain. */
+  .linkit { display: flex; flex-wrap: wrap; column-gap: 1.4rem; }
+  .linkit .ikoni { margin-right: .35rem; vertical-align: -1px; color: var(--punainen); }
   .tyhja { color: var(--himmea); padding: 2rem 0 .5rem; margin: 0; }
   .lisaa {
     display: block; width: 100%; margin-top: 1rem; font: inherit; cursor: pointer;
@@ -231,7 +234,7 @@
           <div class="joukkueet"><span>Ura Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Valkeavuoren%20liikuntahalli%2C%20Veitenm%C3%A4entie%2029%2C%20Kaarina">Valkeavuoren liikuntahalli, Veitenmäentie 29, Kaarina</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006872/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006872/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/ura-m1/games/g/q2a9egjz"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -248,7 +251,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Helsingin NMKY</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019772/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019772/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/xpwwba5"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-10-23T17:00:00.000Z" style="--vari:#111111">
@@ -261,7 +264,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Raiders Basket</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006882/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006882/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/oxjy9oet"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -278,7 +281,7 @@
           <div class="joukkueet"><span>Tapiolan Honka II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tapiolan%20Liikuntahalli%2C%20Urheilupuistontie%202%2C%20Espoo">Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019763/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019763/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/honka-n1/games/g/i5dw8xeu"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="vieras" data-alku="2026-10-25T15:00:00.000Z" style="--vari:#111111">
@@ -291,7 +294,7 @@
           <div class="joukkueet"><span>PeU-Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Perni%C3%B6n%20liikuntahalli%2C%20Ervel%C3%A4ntie%2016%2C%20Salo">Perniön liikuntahalli, Erveläntie 16, Salo</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006843/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006843/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/peu-basket-m1/games/g/6orlq6zi"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -308,7 +311,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Äänekosken Huima</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019773/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019773/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/mg7aipuj"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-11-01T15:00:00.000Z" style="--vari:#111111">
@@ -321,7 +324,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>BC Nokia</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006883/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006883/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/efe8jvpa"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -338,7 +341,7 @@
           <div class="joukkueet"><span>Espoo Basket Team II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Espoonlahden%20urheiluhalli%2C%20Rehtorintie%2011%2C%20Espoo">Espoonlahden urheiluhalli, Rehtorintie 11, Espoo</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019702/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019702/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/ebt-n1/games/g/cdelhhnq"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -355,7 +358,7 @@
           <div class="joukkueet"><span>KTP</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Steveco%20Areena%2C%20Ututie%204%2C%20Kotka">Steveco Areena, Ututie 4, Kotka</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006854/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006854/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/ktp-m1/games/g/2ut131h8"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -372,7 +375,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Turun NMKY</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019774/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019774/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/1ta56a8h"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-11-15T15:00:00.000Z" style="--vari:#111111">
@@ -385,7 +388,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Tapiolan Honka II</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006884/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006884/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/lvfx5ede"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -402,7 +405,7 @@
           <div class="joukkueet"><span>Team Pajulahti</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Luhta%20Areena%2C%20Salpaussel%C3%A4nkatu%207%2C%20Lahti">Luhta Areena, Salpausselänkatu 7, Lahti</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006805/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006805/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/team-pajulahti-m1/games/g/13ecv9da"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -419,7 +422,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Turun NMKY</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006885/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006885/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/2tyniyd"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -436,7 +439,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Kataja Basket Academy</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006886/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006886/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/dsdy64td"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -453,7 +456,7 @@
           <div class="joukkueet"><span>ToPo II</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pirkkolahalli%2C%20Pirkkolan%20mets%C3%A4tie%208%2C%20Helsinki">Pirkkolahalli, Pirkkolan metsätie 8, Helsinki</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019747/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019747/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/topo-n1/games/g/q1l3qqae"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -470,7 +473,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Pyrintö Akatemia</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019775/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019775/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/y0i1be4v"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -487,7 +490,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Pantterit</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019776/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019776/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/6r00vlt9"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2026-12-18T18:00:00.000Z" style="--vari:#111111">
@@ -500,7 +503,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Hyvinkään Ponteva</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006887/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006887/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/9eront96"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -517,7 +520,7 @@
           <div class="joukkueet"><span>BC Nokia</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=AGCO%20Power%20Arena%2C%20Kankaantaankatu%204%2C%20Nokia">AGCO Power Arena, Kankaantaankatu 4, Nokia</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006787/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006787/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/bcnokia-m1/games/g/t4f4w3h9"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-01-08T17:30:00.000Z" style="--vari:#D62A32">
@@ -530,7 +533,7 @@
           <div class="joukkueet"><span>Helsingin NMKY</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namika%20Areena%2C%20Pilkekuja%2010%2C%20Helsinki">Namika Areena, Pilkekuja 10, Helsinki</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019730/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019730/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/hnmky-n1/games/g/blzmcblh"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -547,7 +550,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Leppävaaran Pyrintö</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019777/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019777/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/qlzfxxhp"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -564,7 +567,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Tapiolan Honka II</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019778/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019778/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/t5udkf2v"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-01-15T18:00:00.000Z" style="--vari:#111111">
@@ -577,7 +580,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Ura Basket</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006888/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006888/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/f9xezxox"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -594,7 +597,7 @@
           <div class="joukkueet"><span>Raiders Basket</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=J%C3%A4rvenp%C3%A4%C3%A4n%20liikuntahalli%2C%20Seutulantie%2017%2C%20J%C3%A4rvenp%C3%A4%C3%A4">Järvenpään liikuntahalli, Seutulantie 17, Järvenpää</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006798/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006798/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/raiders-m1/games/g/nkcrzkta"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -611,7 +614,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>Espoo Basket Team II</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019779/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019779/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/ngts4rda"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-01-29T18:00:00.000Z" style="--vari:#111111">
@@ -624,7 +627,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>PeU-Basket</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006889/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006889/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/3ap17uff"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -641,7 +644,7 @@
           <div class="joukkueet"><span>Äänekosken Huima</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%C3%84%C3%A4nekosken%20liikuntatalo%2C%20Koulum%C3%A4enkatu%202%2C%20%C3%84%C3%A4nekoski">Äänekosken liikuntatalo, Koulumäenkatu 2, Äänekoski</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019787/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019787/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/huima-n1/games/g/otj6x21o"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -658,7 +661,7 @@
           <div class="joukkueet"><span>Tapiolan Honka II</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tapiolan%20Liikuntahalli%2C%20Urheilupuistontie%202%2C%20Espoo">Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006868/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006868/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/honka-m1/games/g/94uyz5zm"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -675,7 +678,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>KTP</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006890/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006890/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/rt3opanp"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -692,7 +695,7 @@
           <div class="joukkueet"><span>Kataja Basket Academy</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Motonet%20Areena%2C%20Kisapolku%203%2C%20Joensuu">Motonet Areena, Kisapolku 3, Joensuu</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006829/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006829/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/kataja-m1/games/g/64kn58en"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="puhuttaret" data-paikka="vieras" data-alku="2027-02-21T15:00:00.000Z" style="--vari:#D62A32">
@@ -705,7 +708,7 @@
           <div class="joukkueet"><span>Turun NMKY</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nunnavuoren%20palloiluhalli%2C%20Piiparinpolku%2022%2C%20Turku">Nunnavuoren palloiluhalli, Piiparinpolku 22, Turku</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019742/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019742/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/tunmky-n1/games/g/novpfn6g"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -722,7 +725,7 @@
           <div class="joukkueet"><span class="oma">Puhuttaret</span> <span class="vs">&ndash;</span> <span>ToPo II</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019780/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019780/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhuttaret/games/g/p2s4xv1u"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
       <article class="ottelu" data-joukkue="miehet" data-paikka="koti" data-alku="2027-02-26T18:00:00.000Z" style="--vari:#111111">
@@ -735,7 +738,7 @@
           <div class="joukkueet"><span class="oma">PuHu</span> <span class="vs">&ndash;</span> <span>Team Pajulahti</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vantaan%20Energia%20Areena%2C%20Rajatorpantie%2023%2C%20Vantaa">Vantaan Energia Areena, Rajatorpantie 23, Vantaa</a>
           <div class="vapaa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg>Vapaa pääsy</div>
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006891/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006891/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/puhu-m1/games/g/w9jg22ml"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -752,7 +755,7 @@
           <div class="joukkueet"><span>Turun NMKY</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nunnavuoren%20palloiluhalli%2C%20Piiparinpolku%2022%2C%20Turku">Nunnavuoren palloiluhalli, Piiparinpolku 22, Turku</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006840/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006840/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/tunmky-m1/games/g/quaisk8b"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -769,7 +772,7 @@
           <div class="joukkueet"><span>Pyrintö Akatemia</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pyynikin%20palloiluhalli%2C%20Ammattikoulunkatu%2020%2C%20Tampere">Pyynikin palloiluhalli, Ammattikoulunkatu 20, Tampere</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019760/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019760/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/pyrinto-n1/games/g/4er67989"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -786,7 +789,7 @@
           <div class="joukkueet"><span>Pantterit</span> <span class="vs">&ndash;</span> <span class="oma">Puhuttaret</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Herttoniemenr.%20liik.halli%2C%20Petter%20Wetterin%20tie%205%2C%20Helsinki">Herttoniemenr. liik.halli, Petter Wetterin tie 5, Helsinki</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019716/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1019716/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/pantterit-n1/games/g/7qpe5jfc"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -803,7 +806,7 @@
           <div class="joukkueet"><span>Hyvinkään Ponteva</span> <span class="vs">&ndash;</span> <span class="oma">PuHu</span></div>
           <a class="halli" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Martinhalli%2C%20Martintorinkuja%202%2C%20Hyvink%C3%A4%C3%A4">Martinhalli, Martintorinkuja 2, Hyvinkää</a>
           
-          <a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006821/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a>
+          <div class="linkit"><a class="basketfi" target="_blank" rel="noopener" href="https://tulospalvelu.basket.fi/match/1006821/preview">Ottelu basket.fi:ssä <span aria-hidden="true">&rarr;</span></a><a class="basketfi striimi" target="_blank" rel="noopener" href="https://koristv.fi/hypo-m1/games/g/zzvp2s82"><svg class="ikoni" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>Katso striimi <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     </section>
@@ -824,7 +827,7 @@
   </details>
 
   <footer>
-    <p>Päivitetty 13. lokakuuta 2026 klo 13.27. Lähde: <a href="https://tulospalvelu.basket.fi/" target="_blank" rel="noopener">Koripalloliiton tulospalvelu</a>.</p>
+    <p>Päivitetty 13. lokakuuta 2026 klo 21.07. Lähde: <a href="https://tulospalvelu.basket.fi/" target="_blank" rel="noopener">Koripalloliiton tulospalvelu</a>.</p>
     <p class="seura"><a href="https://www.puhujuniorit.fi">PuHu Juniorit ry</a></p>
   </footer>
 </div>
