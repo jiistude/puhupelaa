@@ -1,21 +1,6 @@
 {
-  "paivitetty": "16. lokakuuta 2026 klo 11.05",
+  "paivitetty": "17. lokakuuta 2026 klo 0.04",
   "tulevat": [
-    {
-      "match_id": "1006872",
-      "alku": "2026-10-16T15:30:00.000Z",
-      "paiva": "2026-10-16",
-      "kello": "18:30",
-      "koti": "Ura Basket",
-      "vieras": "PuHu",
-      "sarja": "Miesten I divisioona B",
-      "halli": "Valkeavuoren liikuntahalli, Veitenmäentie 29, Kaarina",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006872/preview",
-      "joukkue": "PuHu Miehet",
-      "tunniste": "miehet",
-      "paikka": "vieras",
-      "striimi": "https://koristv.fi/ura-m1/games/g/q2a9egjz"
-    },
     {
       "match_id": "1019772",
       "alku": "2026-10-23T14:30:00.000Z",
