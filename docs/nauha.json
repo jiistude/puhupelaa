@@ -1,6 +1,6 @@
 {
   "versio": 1,
-  "paivitetty": "23. lokakuuta 2026 klo 11.27",
+  "paivitetty": "24. lokakuuta 2026 klo 0.21",
   "sivu": "https://pelit.puhujuniorit.fi",
   "huomautus": "Vapaa pääsy",
   "kesto_min": 120,
@@ -15,30 +15,6 @@
     }
   },
   "kotipelit": [
-    {
-      "alku": "2026-10-23T14:30:00.000Z",
-      "paiva": "2026-10-23",
-      "kello": "17:30",
-      "koti": "Puhuttaret",
-      "vieras": "Helsingin NMKY",
-      "joukkue": "puhuttaret",
-      "sarja": "Naisten I divisioona",
-      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019772/preview",
-      "striimi": "https://koristv.fi/puhuttaret/games/g/xpwwba5"
-    },
-    {
-      "alku": "2026-10-23T17:00:00.000Z",
-      "paiva": "2026-10-23",
-      "kello": "20:00",
-      "koti": "PuHu",
-      "vieras": "Raiders Basket",
-      "joukkue": "miehet",
-      "sarja": "Miesten I divisioona B",
-      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006882/preview",
-      "striimi": "https://koristv.fi/puhu-m1/games/g/oxjy9oet"
-    },
     {
       "alku": "2026-11-01T12:00:00.000Z",
       "paiva": "2026-11-01",
@@ -158,6 +134,30 @@
       "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
       "linkki": "https://tulospalvelu.basket.fi/match/1019777/preview",
       "striimi": "https://koristv.fi/puhuttaret/games/g/qlzfxxhp"
+    },
+    {
+      "alku": "2027-01-15T15:30:00.000Z",
+      "paiva": "2027-01-15",
+      "kello": "17:30",
+      "koti": "Puhuttaret",
+      "vieras": "Tapiolan Honka II",
+      "joukkue": "puhuttaret",
+      "sarja": "Naisten I divisioona",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1019778/preview",
+      "striimi": "https://koristv.fi/puhuttaret/games/g/t5udkf2v"
+    },
+    {
+      "alku": "2027-01-15T18:00:00.000Z",
+      "paiva": "2027-01-15",
+      "kello": "20:00",
+      "koti": "PuHu",
+      "vieras": "Ura Basket",
+      "joukkue": "miehet",
+      "sarja": "Miesten I divisioona B",
+      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
+      "linkki": "https://tulospalvelu.basket.fi/match/1006888/preview",
+      "striimi": "https://koristv.fi/puhu-m1/games/g/f9xezxox"
     }
   ]
 }

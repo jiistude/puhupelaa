@@ -1,36 +1,6 @@
 {
-  "paivitetty": "23. lokakuuta 2026 klo 11.27",
+  "paivitetty": "24. lokakuuta 2026 klo 0.21",
   "tulevat": [
-    {
-      "match_id": "1019772",
-      "alku": "2026-10-23T14:30:00.000Z",
-      "paiva": "2026-10-23",
-      "kello": "17:30",
-      "koti": "Puhuttaret",
-      "vieras": "Helsingin NMKY",
-      "sarja": "Naisten I divisioona",
-      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019772/preview",
-      "joukkue": "Puhuttaret",
-      "tunniste": "puhuttaret",
-      "paikka": "koti",
-      "striimi": "https://koristv.fi/puhuttaret/games/g/xpwwba5"
-    },
-    {
-      "match_id": "1006882",
-      "alku": "2026-10-23T17:00:00.000Z",
-      "paiva": "2026-10-23",
-      "kello": "20:00",
-      "koti": "PuHu",
-      "vieras": "Raiders Basket",
-      "sarja": "Miesten I divisioona B",
-      "halli": "Vantaan Energia Areena, Rajatorpantie 23, Vantaa",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006882/preview",
-      "joukkue": "PuHu Miehet",
-      "tunniste": "miehet",
-      "paikka": "koti",
-      "striimi": "https://koristv.fi/puhu-m1/games/g/oxjy9oet"
-    },
     {
       "match_id": "1019763",
       "alku": "2026-10-25T12:00:00.000Z",
