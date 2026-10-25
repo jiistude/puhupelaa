@@ -1,36 +1,6 @@
 {
-  "paivitetty": "25. lokakuuta 2026 klo 10.20",
+  "paivitetty": "25. lokakuuta 2026 klo 22.47",
   "tulevat": [
-    {
-      "match_id": "1019763",
-      "alku": "2026-10-25T12:00:00.000Z",
-      "paiva": "2026-10-25",
-      "kello": "14:00",
-      "koti": "Tapiolan Honka II",
-      "vieras": "Puhuttaret",
-      "sarja": "Naisten I divisioona",
-      "halli": "Tapiolan Liikuntahalli, Urheilupuistontie 2, Espoo",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019763/preview",
-      "joukkue": "Puhuttaret",
-      "tunniste": "puhuttaret",
-      "paikka": "vieras",
-      "striimi": "https://koristv.fi/honka-n1/games/g/i5dw8xeu"
-    },
-    {
-      "match_id": "1006843",
-      "alku": "2026-10-25T15:00:00.000Z",
-      "paiva": "2026-10-25",
-      "kello": "17:00",
-      "koti": "PeU-Basket",
-      "vieras": "PuHu",
-      "sarja": "Miesten I divisioona B",
-      "halli": "Perniön liikuntahalli, Erveläntie 16, Salo",
-      "linkki": "https://tulospalvelu.basket.fi/match/1006843/preview",
-      "joukkue": "PuHu Miehet",
-      "tunniste": "miehet",
-      "paikka": "vieras",
-      "striimi": "https://koristv.fi/peu-basket-m1/games/g/6orlq6zi"
-    },
     {
       "match_id": "1019773",
       "alku": "2026-11-01T12:00:00.000Z",
