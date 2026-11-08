@@ -1,21 +1,6 @@
 {
-  "paivitetty": "8. marraskuuta 2026 klo 12.12",
+  "paivitetty": "8. marraskuuta 2026 klo 23.59",
   "tulevat": [
-    {
-      "match_id": "1019702",
-      "alku": "2026-11-08T15:00:00.000Z",
-      "paiva": "2026-11-08",
-      "kello": "17:00",
-      "koti": "Espoo Basket Team II",
-      "vieras": "Puhuttaret",
-      "sarja": "Naisten I divisioona",
-      "halli": "Espoonlahden urheiluhalli, Rehtorintie 11, Espoo",
-      "linkki": "https://tulospalvelu.basket.fi/match/1019702/preview",
-      "joukkue": "Puhuttaret",
-      "tunniste": "puhuttaret",
-      "paikka": "vieras",
-      "striimi": "https://koristv.fi/ebt-n1/games/g/cdelhhnq"
-    },
     {
       "match_id": "1006854",
       "alku": "2026-11-12T16:30:00.000Z",
